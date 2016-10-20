@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1280 720">
+  <defs>
+    <style>.cls-1{fill:none;}.cls-2{fill:#d3edf9;}.cls-3{fill:#fffbc4;}.cls-4{fill:url(#新規パターン);}</style>
+    <pattern id="新規パターン" data-name="新規パターン" width="77.96" height="77.96" patternTransform="translate(0 -8)" patternUnits="userSpaceOnUse" viewBox="0 0 77.96 77.96">
+      <rect class="cls-1" width="77.96" height="77.96"/>
+      <rect class="cls-2" width="38.98" height="38.98"/>
+      <rect class="cls-2" x="38.98" y="38.98" width="38.98" height="38.98"/>
+    </pattern>
+  </defs>
+  <title>background-girl</title>
+  <g id="Layer_2" data-name="Layer 2">
+    <g id="背景">
+      <rect class="cls-4" y="96.16" width="1280" height="544.43"/>
+    </g>
+  </g>
+</svg>
