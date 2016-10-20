@@ -1,0 +1,63 @@
+@keyframes take-hidari {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: translate(0, 100%) rotate(-45deg);
+  }
+}
+
+@keyframes take-migi {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: translate(0, 100%) rotate(45deg) ;
+  }
+}
+
+@keyframes background {
+  from {
+    background-position: 25%;
+  }
+  to {
+    background-position: 65%;
+  }
+}
+
+#scene-baby {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: bottom;
+  background-image: url(materials/background.svg);
+  background-size: cover;
+  animation: background 10s linear forwards;
+}
+
+#scene-baby .hime {
+  position: absolute;
+  left: 40%;
+  top: 20%;
+  width: 20%;
+}
+
+#scene-baby .take-hidari {
+  position: absolute;
+  left: 30%;
+  bottom: 0;
+  width: 20%;
+  animation: take-hidari 1s ease-in forwards;
+}
+
+#scene-baby .take-migi {
+  position: absolute;
+  right: 30%;
+  bottom: 0;
+  width: 20%;
+  animation: take-migi 1.5s ease-out forwards;
+}
