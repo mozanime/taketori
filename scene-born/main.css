@@ -13,58 +13,40 @@
   bottom: 0;
   left: 0;
   right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: bottom;
   background-image: url(materials/background.svg);
   background-size: cover;
 }
 
 #scene-born .hime {
   position: absolute;
-  top: 20%;
+  left: 40%;
   bottom: 0;
-  left: 10%;
-  right: 10%;
-  background-image: url(materials/hime.svg);
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center bottom;
+  width: 20%;
 }
 
 #scene-born .halo {
-  position: absolute;
-  top: -10%;
-  bottom: -10%;
-  left: -10%;
-  right: -10%;
-  background-image: url(materials/halo.svg);
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
+  position: relative;
+  top: -5%;
+  height: 110%;
   animation: haloRotation 10s infinite linear;
 }
 
-#scene-born label {
-  font-size: 2em;
+#scene-born span {
   font-family: serif;
+  writing-mode: vertical-rl;
 }
 
 #scene-born .right {
   position: absolute;
-  right: 10%;
-  top: 10%;
-}
-
-#scene-born .right::before {
-  content: "それを見れば、三寸ばかりなる人";
-  writing-mode: vertical-rl;
+  right: 15%;
+  top: 15%;
 }
 
 #scene-born .left {
   position: absolute;
-  left: 5%;
-  top: 20%;
-}
-
-#scene-born .left::before {
-  content: "いとうつくしうてゐたり";
-  writing-mode: vertical-rl;
+  left: 15%;
+  top: 40%;
 }
