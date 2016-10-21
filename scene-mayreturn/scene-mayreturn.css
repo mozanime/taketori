@@ -1,0 +1,131 @@
+#scene-mayreturn {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-image: url(materials/mayreturn-background.svg);
+  background-size: cover;
+}
+
+#scene-mayreturn .tsuki {
+  position: absolute;
+  top: 20%;
+  right: 15%;
+  width: 20%;
+}
+
+#scene-mayreturn .hoshis {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#scene-mayreturn .hoshi {
+  position: absolute;
+  background-image: url(materials/mayreturn-hoshi.svg);
+  background-size: cover;
+  width: 20px;
+  height: 20px;
+}
+
+@keyframes mayreturn-show-kawa {
+  to {
+    opacity: 1;
+  }
+}
+
+#scene-mayreturn .kawa {
+  position: absolute;
+  top: 41%;
+  left: -22%;
+  width: 100%;
+  opacity: 0;
+  animation: mayreturn-show-kawa 3s 0s ease-in forwards;
+}
+
+@keyframes mayreturn-gatagoto {
+  from {
+    transform: rotate(-5deg);
+  }
+  to {
+    transform: rotate(5deg);
+  }
+}
+
+@keyframes mayreturn-come-kuruma {
+  to {
+    transform: translate(-724%, 260%) scale(3);
+  }
+}
+
+@keyframes mayreturn-return-kuruma {
+  from {
+    transform: translate(-724%, 260%) scale(3);
+  }
+  to {
+    transform: translate(0%, 0%) scale(1);
+  }
+}
+
+#scene-mayreturn .kuruma-container {
+  position: absolute;
+  top: 33%;
+  right: 21.5%;
+  width: 7%;
+  animation: mayreturn-come-kuruma 5s 4s cubic-bezier(0.95, 0.05, 0.795, 0.035) forwards,
+             mayreturn-return-kuruma 5s 10s cubic-bezier(0.95, 0.05, 0.795, 0.035) forwards
+}
+
+#scene-mayreturn .kuruma {
+  animation: mayreturn-gatagoto 2s 4s ease-in alternate infinite;
+}
+
+@keyframes mayreturn-kumo {
+  to {
+    opacity: 0;
+  }
+}
+
+#scene-mayreturn .kumo-1 {
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  width: 100%;
+  animation: mayreturn-kumo 7s linear alternate infinite;
+}
+
+#scene-mayreturn .kumo-2 {
+  position: absolute;
+  top: 70%;
+  left: -50%;
+  width: 100%;
+  animation: mayreturn-kumo 7s 2s linear alternate infinite;
+}
+
+@keyframes mayreturn-ride-hime {
+  to {
+    transform: translate(0, -31%) scale(0.3);
+  }
+}
+
+@keyframes mayreturn-return-hime {
+  from {
+    transform: translate(0, -28%) scale(0.3);
+  }
+  to {
+    transform: translate(267%, -90%) scale(0.1);
+  }
+}
+
+#scene-mayreturn .hime {
+  position: absolute;
+  left: 15%;
+  bottom: -25%;
+  height: 60%;
+  animation: mayreturn-ride-hime 1s 9s forwards,
+             mayreturn-return-hime 5s 10s cubic-bezier(0.95, 0.05, 0.795, 0.035) forwards;
+
+}

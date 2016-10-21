@@ -1,0 +1,14 @@
+<svg width="90" height="90" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      circle {
+        fill:none;
+        stroke-miterlimit:10;
+        stroke:#f80000;
+        stroke-width:7px;
+        stroke-dasharray:1.06 15.9;
+      }
+      </style>
+  </defs>
+  <circle r="40" cy="45" cx="45"/>
+</svg>
