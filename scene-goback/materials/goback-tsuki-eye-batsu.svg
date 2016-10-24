@@ -1,0 +1,9 @@
+<svg width="700" height="700" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>line {stroke-linecap:round;stroke-miterlimit:10;stroke:#241714; stroke-width: 2px;}</style>
+  </defs>
+  <line y2="406" x2="155" y1="416" x1="165" class="cls-9"/>
+  <line y2="406" x2="165" y1="416" x1="155" class="cls-9"/>
+  <line y2="406" x2="323" y1="416" x1="333" class="cls-9"/>
+  <line y2="406" x2="333" y1="416" x1="323" class="cls-9"/>
+</svg>
