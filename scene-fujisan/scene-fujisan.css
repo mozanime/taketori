@@ -1,0 +1,160 @@
+#scene-fujisan {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-image: url(materials/fujisan-background.svg);
+  background-size: cover;
+}
+
+@keyframes fujisan-show {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fujisan-hide {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fujisan-tsuki-zoom-out {
+  to {
+    transform: translate(40%, -55%) scale(0.6);
+  }
+}
+
+@keyframes fujisan-zoom-out {
+  to {
+    transform: translate(0%, 0%) scale(1);
+  }
+}
+
+#scene-fujisan .camera {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: translate(-74%, 140%) scale(7.18);
+  animation: fujisan-zoom-out 5s forwards;
+}
+
+#scene-fujisan .tsuki {
+  position: absolute;
+  top: 30%;
+  left: 35%;
+  height: calc(30% / 9 * 16);
+  width: 30%;
+  transform: translate(40%, -55%) scale(0.6);
+}
+
+#scene-fujisan .tsuki img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+#scene-fujisan .tsuki .eye-batsu {
+  opacity: 1;
+  animation: fujisan-hide 5s forwards;
+}
+
+#scene-fujisan .tsuki .nose-mouth {
+  opacity: 1;
+  animation: fujisan-hide 5s forwards;
+}
+
+#scene-fujisan .tsuki .ear {
+  opacity: 1;
+}
+
+#scene-fujisan .hoshis {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#scene-fujisan .hoshi {
+  position: absolute;
+  background-image: url(materials/fujisan-hoshi.svg);
+  background-size: cover;
+  width: 20px;
+  height: 20px;
+}
+
+#scene-fujisan .fujisan {
+  position: absolute;
+  left: 20%;
+  bottom: 0;
+  width: 35%;
+}
+
+#scene-fujisan .kusa {
+  position: absolute;
+  bottom: -5%;
+  width: 10%;
+}
+
+#scene-fujisan .mikado {
+  position: absolute;
+  width: 3%;
+  top: 53%;
+  left: 36%;
+  opacity: 0;
+  animation: fujisan-show 1s 6s linear forwards;
+}
+
+#scene-fujisan .hime {
+  position: absolute;
+  width: 2%;
+  top: 30%;
+  left: 59.4%;
+  opacity: 0;
+  animation: fujisan-show 2s 6s linear forwards;
+}
+
+#scene-fujisan .kuruma {
+  position: absolute;
+  width: 6%;
+  top: 26%;
+  left: 57.4%;
+  opacity: 0;
+  animation: fujisan-show 2s 6s linear forwards;
+}
+
+@keyframes fujisan-dropBlur {
+  to { filter: blur(0px); }
+}
+
+#scene-fujisan p:lang(ja) {
+  writing-mode: vertical-rl;
+}
+
+#scene-fujisan p span {
+  position: absolute;
+  color: white;
+  opacity: 0;
+  filter: blur(0.5rem);
+  animation: fujisan-dropBlur 3s 9s ease-out forwards,
+             fujisan-show 3s 9s ease-out forwards;
+}
+
+#scene-fujisan p span:nth-child(1) {
+  top: 15%;
+  right: 5%;
+}
+
+#scene-fujisan p span:nth-child(2) {
+  top: 30%;
+  right: calc(5% + 1.5em);
+}
+
+#scene-fujisan p span:nth-child(3) {
+  top: 40%;
+  right: calc(5% + 3em);
+}
