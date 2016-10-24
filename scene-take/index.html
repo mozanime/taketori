@@ -1,0 +1,235 @@
+<!doctype html>
+<html>
+<meta charset=utf-8>
+<title>Opening</title>
+<style>
+body {
+  background: black;
+  margin: 0;
+}
+.viewport {
+  width: 1280px;
+  height: 720px;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+}
+.viewport img {
+  display: block;
+  position: absolute;
+  animation-fill-mode: forwards;
+}
+.viewport .group {
+  position: absolute;
+  top: 0px;
+  animation-fill-mode: forwards;
+}
+.camera {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.bg {
+  background: #bdf5e0;
+  width: 100%;
+  height: 100%;
+}
+.sunset {
+  background: linear-gradient(to bottom, #d9473e, #df7261 45%, transparent 90%);
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  animation: moveUp 6s 7.7s forwards;
+}
+.yamatachi {
+  animation: moveUp 3.5s 7.4s, fadeOut 3.2s 7.4s;
+}
+.torii {
+  animation: moveUp 3.5s 7.4s, fadeOut 1.8s 7.4s;
+}
+.tsuki {
+  animation: brightGlow 1.5s alternate infinite ease-in-out, moveUp 3.6s 7.6s;
+}
+.shiro-kumo-group {
+  animation: moveUp 4s 7.6s;
+}
+.shiro-kumo-group img {
+  animation: driftRight 27s linear forwards 0.5,
+             fadeHalf 2.5s alternate infinite;
+}
+.shiro-kumo-group img:nth-child(1) {
+  animation-duration: 22s, 4s;
+  animation-delay: 0s, 0s;
+}
+.shiro-kumo-group img:nth-child(3) {
+  animation-duration: 40s;
+  animation-delay: 0s, 1s;
+}
+.take-group img {
+  transform: scale(1, 0.85);
+  animation: grow 4s forwards,
+             moveUpALot 3.8s 7.1s forwards cubic-bezier(.6,0,.71,1);
+  animation-delay: 1000s;
+  /* will-change: transform; */
+}
+.take-group img:nth-child(6) { animation-delay: 1s, 7.1s;
+  animation-timing-function: ease, ease-in-out }
+.take-group img:nth-child(4) { animation-delay: 1.8s, 7.1s;
+  animation-timing-function: ease, ease }
+.take-group img:nth-child(13) { animation-delay: 2.1s, 6.9s;
+  animation-timing-function: ease, cubic-bezier(.6,0,.71,1) }
+.take-group img:nth-child(16) { animation-delay: 2.5s, 7.0s;
+  animation-timing-function: ease, ease-in-out }
+.take-group img:nth-child(9) { animation-delay: 2.5s, 7.1s;
+  animation-timing-function: ease, ease }
+.take-group img:nth-child(8) { animation-delay: 3.0s, 7.3s;
+  animation-timing-function: ease, cubic-bezier(.6,0,.71,1) }
+.take-group img:nth-child(17) { animation-delay: 3.0s, 7.2s;
+  animation-timing-function: ease, ease }
+.take-group img:nth-child(18) { animation-delay: 3.8s, 7.0s;
+  animation-timing-function: ease, ease-in-out }
+.take-group img:nth-child(1) { animation-delay: 3.9s, 7.05s;
+  animation-timing-function: ease, cubic-bezier(.6,0,.71,1) }
+.take-group img:nth-child(19) { animation-delay: 4.1s, 7.0s; }
+.take-group img:nth-child(2) { animation-delay: 3.6s, 7.1s;
+  animation-timing-function: ease, cubic-bezier(.6,0,.71,1) }
+.take-group img:nth-child(3) { animation-delay: 3.8s, 7.0s;
+  animation-timing-function: ease, ease-in-out }
+.take-group img:nth-child(10) { animation-delay: 3.4s, 7.0s;
+  animation-timing-function: ease, cubic-bezier(.6,0,.71,1) }
+.take-group img:nth-child(11) { animation-delay: 3.9s, 7.0s;
+  animation-timing-function: ease, ease }
+.take-group img:nth-child(12) { animation-delay: 3.8s, 7.3s;
+  animation-timing-function: ease, ease-in-out }
+.take-group img:nth-child(14) { animation-delay: 3.1s, 7.0s;
+  animation-timing-function: ease, ease }
+.take-group img:nth-child(15) { animation-delay: 4.3s, 7.14s;
+  animation-timing-function: ease, cubic-bezier(.6,0,.71,1) }
+.take-group img.new-take {
+  opacity: 0;
+  animation: moveUpALot 3.8s 7.1s forwards cubic-bezier(0.6,0,0.71,1),
+             fadeIn 2.2s 9.4s forwards;
+  /* will-change: transform, opacity; */
+}
+.take-group img.new-take:nth-child(7) {
+  animation-delay: 7.1s, 9.6s;
+}
+.kumo {
+  opacity: 0;
+  animation: fadeIn 3s 7.3s 2 alternate ease-in, moveRight 12s 6s forwards;
+}
+#kumo-2 {
+  animation-duration: 4s, 13s;
+}
+#kumo-3 {
+  animation-name: fadeIn, moveLeft;
+}
+.narration {
+  position: absolute;
+  font-size: 30px;
+  font-weight: 500;
+  writing-mode: vertical-rl;
+  filter: blur(15px);
+  mask: linear-gradient(white 0%, transparent 100%) top;
+  mask-size: 100% 0%;
+  animation: dropBlur 2s 12s forwards,
+             revealText 2.5s 12s forwards,
+             fadeOut 2s 15s forwards;
+}
+.camera {
+  margin: 0;
+  padding: 0;
+  animation: zoomIn 6s 15s ease-in-out forwards;
+}
+@keyframes brightGlow {
+  to { filter: brightness(123%) }
+}
+@keyframes driftRight {
+  to { transform: translate(600px); }
+}
+@keyframes grow {
+  to { transform: scale(1.0, 1.0); }
+}
+@keyframes moveUpALot {
+  from { transform: scale(1.0, 1.0) translate(0, 0); }
+  to { transform: scale(1.0, 1.0) translate(0, -1420px); }
+}
+@keyframes moveUp {
+  to { transform: translate(0px, -720px); }
+}
+@keyframes moveLeft {
+  to { transform: translate(-1000px); }
+}
+@keyframes moveRight {
+  to { transform: translate(1000px); }
+}
+@keyframes fadeOut {
+  to { opacity: 0 }
+}
+@keyframes fadeIn {
+  to { opacity: 0.99 }
+}
+@keyframes fadeHalf {
+  to { opacity: 0.75 }
+}
+@keyframes dropBlur {
+  to { filter: blur(0px); }
+}
+@keyframes revealText {
+  to { mask-size: 100% 300%; }
+}
+@keyframes zoomIn {
+  to { transform: scale(2) translate(0, -100px); }
+}
+</style>
+<div class=viewport>
+  <div class=camera>
+  <div class=bg></div>
+  <div class=sunset></div>
+  <img src="yamatachi.svg" style="width: 1282px; left: -1px; top: 117px"
+    class=yamatachi>
+  <img src="torii.svg" style="width: 276px; left: 25px; top: 400px"
+    class=torii>
+  <img src="tsuki.svg" style="width: 171px; left: 601px; top: 32px"
+    class=tsuki>
+  <div class="shiro-kumo-group group">
+    <img src="shiro-kumo-1.svg" style="width: 152px; left: 515px; top: 62px">
+    <img src="shiro-kumo-2.svg" style="width: 152px; left: 253px; top: 165px">
+    <img src="shiro-kumo-3.svg" style="width: 171px; left: 760px; top: 166px">
+  </div>
+  <div class="take-group group">
+    <img src="take-01.svg" style="width: 398px; left: -71px; top: 86px">
+    <img src="take-02.svg" style="width: 364px; left: -132px; top: 159px">
+    <img src="take-03.svg" style="width: 303px; left: -101px; top: 263px">
+    <img src="take-04.svg" style="width: 314px; left: 13px; top: 166px">
+    <img src="new-take-1.svg" style="width: 77px; left: 84px; top: 840px"
+      class=new-take>
+    <img src="take-05.svg" style="width: 148px; left: 226px; top: 275px">
+    <img src="new-take-2.svg" style="width: 78px; left: 176px; top: 786px"
+      class=new-take>
+    <img src="take-06.svg" style="width: 211px; left: 282px; top: 133px">
+    <img src="take-07.svg" style="width: 153px; left: 387px; top: 211px">
+    <img src="take-08.svg" style="width: 133px; left: 430px; top: 308px">
+    <img src="take-09.svg" style="width: 144px; left: 538px; top: 180px">
+    <img src="take-10.svg" style="width: 115px; left: 658px; top: 241px">
+    <img src="take-11.svg" style="width: 159px; left: 713px; top: 227px">
+    <img src="take-12.svg" style="width: 141px; left: 780px; top: 325px">
+    <img src="take-13.svg" style="width: 227px; left: 856px; top: 107px">
+    <img src="take-14.svg" style="width: 138px; left: 1004px; top: 349px">
+    <img src="take-15.svg" style="width: 238px; left: 1023px; top: 213px">
+    <img src="take-16.svg" style="width: 182px; left: 1108px; top: 308px">
+    <img src="take-17.svg" style="width: 457px; left: 981px; top: 60px">
+  </div>
+  <img src="kumo-1.svg" style="width: 574px; left: -223px; top: 90px"
+    class="kumo" id=kumo-1>
+  <img src="kumo-2.svg" style="width: 537px; left: -271px; top: 538px"
+    class="kumo" id=kumo-2>
+  <img src="kumo-3.svg" style="width: 537px; left: 919px; top: 225px"
+    class="kumo" id=kumo-3>
+  <p class=narration style="left: 910px; top: 50px">その竹の中に、もと光る竹なむ一筋ありける。</p>
+  </div>
+</div>
+</html>
