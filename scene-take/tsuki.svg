@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 171.45 171.45">
+  <defs>
+    <radialGradient id="a" cx="85.73" cy="85.73" r="85.73" gradientUnits="userSpaceOnUse">
+      <stop offset=".01" stop-color="#fff"/>
+      <stop offset=".1" stop-color="#fefbfb" stop-opacity=".98"/>
+      <stop offset=".23" stop-color="#fcf0ef" stop-opacity=".92"/>
+      <stop offset=".36" stop-color="#f8dedc" stop-opacity=".82"/>
+      <stop offset=".51" stop-color="#f3c4c2" stop-opacity=".68"/>
+      <stop offset=".66" stop-color="#eca49f" stop-opacity=".5"/>
+      <stop offset=".82" stop-color="#e47c75" stop-opacity=".29"/>
+      <stop offset=".98" stop-color="#da4d44" stop-opacity=".03"/>
+      <stop offset="1" stop-color="#d9473e" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <circle cx="85.73" cy="85.73" r="85.73" fill="url(#a)"/>
+  <circle cx="85.73" cy="85.73" r="54.58" fill="#ffffa3"/>
+  <circle cx="85.73" cy="85.73" r="46.33" fill="#ff0"/>
+</svg>
