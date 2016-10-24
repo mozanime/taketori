@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+<meta charset=utf-8>
+<title>竹取物語</title>
+<style>
+body {
+  background: black;
+  margin: 0;
+}
+.viewport {
+  position: relative;
+  width: 1280px;
+  height: 720px;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+}
+iframe {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1280px;
+  height: 720px;
+  overflow: hidden;
+  border: none;
+  opacity: 0;
+  transition: opacity 2s;
+}
+iframe.active {
+  opacity: 1;
+}
+</style>
+<body>
+  <div class="viewport">
+  </div>
+</body>
+<script>
+const scenes = [ { url: 'scene-intro' },
+                 { url: 'scene-take' },
+                 { url: 'scene-born' },
+                 { url: 'scene-baby' },
+                 { url: 'scene-grow' },
+                 { url: 'scene-house' },
+                 { url: 'scene-mayreturn' },
+                 { url: 'scene-cry' } ];
+const viewport = document.querySelector('.viewport');
+
+scenes.forEach((scene, i) => {
+  scene.iframe = document.createElement('iframe');
+  scene.iframe.src = `${scene.url}\/index.html`;
+  viewport.appendChild(scene.iframe);
+  scene.iframe.contentWindow.addEventListener('load', () => {
+    if (i == 0) {
+      activateScene(i);
+    } else {
+      // Pause all animations in non-active documents
+      scene.iframe.contentDocument.getAnimations().forEach(anim => {
+        anim.pause();
+      });
+    }
+  });
+});
+
+function activateScene(index) {
+  const scene = scenes[index];
+  scene.iframe.classList.add('active');
+
+  // Look for paused animations to un-pause
+  scene.iframe.contentDocument.getAnimations().forEach(animation => {
+    if (animation.playState == 'paused') {
+      animation.play();
+    }
+  });
+
+  const currentSceneEnd = Promise.all(
+    scene.iframe.contentDocument.getAnimations().map(
+      animation =>
+        animation.effect.getComputedTiming().activeDuration != Infinity
+        ? animation.finished
+        : Promise.resolve()));
+  currentSceneEnd.then(() => {
+    if (index == scenes.length - 1) {
+      return;
+    }
+    // Just wait 2 seconds until the next scene for now. We'll fix this later.
+    setTimeout(() => {
+      scene.iframe.classList.remove('active');
+      activateScene(index + 1);
+    }, 2000);
+  });
+}
+</script>
+</html>
