@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'Honoka';
+  src: url('../fonts/honoka-maru.ttf');
+}
+
 @keyframes haloRotation {
   from {
     transform: rotate(0deg);
@@ -35,8 +40,21 @@
 }
 
 #scene-born span {
-  font-family: serif;
+  font-family: 'Honoka', serif;
+  font-size: 35px;
   writing-mode: vertical-rl;
+  mask: linear-gradient(white 0%, transparent 100%) top;
+  mask-size: 100% 0%;
+  filter: blur(0.3em);
+  animation: revealText 4s forwards,
+             dropBlur 2s forwards;
+}
+
+@keyframes revealText {
+  to { mask-size: 100% 500%; }
+}
+@keyframes dropBlur {
+  to { filter: blur(0px); }
 }
 
 #scene-born .right {
@@ -49,4 +67,5 @@
   position: absolute;
   left: 15%;
   top: 40%;
+  animation-delay: 1.6s, 1.6s;
 }

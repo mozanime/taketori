@@ -2,6 +2,7 @@
 document.addEventListener('DOMContentLoaded', function() {
   var animCount = 0;
   var ax = document.getElementById("ax");
+  var bamboo  = document.getElementById("bamboo");
   var bamboo1 = document.getElementById("bamboo-back1");
   var bamboo2 = document.getElementById("bamboo-back2");
   var bamboo3 = document.getElementById("bamboo-back3");
@@ -9,6 +10,35 @@ document.addEventListener('DOMContentLoaded', function() {
 
   ax.style.bottom = "70px";
 
+  var bambooTransition = function(target) {
+    target.style.height = "700.47px";
+    target.style.width  = "130px";
+    target.style.left   = "40%";
+    target.style.bottom = "-20px";
+  }
+
+  var bambooTransitionBack = function(target) {
+    target.style.height = "700px";
+    target.style.width = "126px";
+    target.style.left =  "40.2%";
+    target.style.bottom = "-20px";
+  }
+
+  var bambooZoom = function() {
+    bamboo1.style.display = "none";
+    bamboo2.style.display = "none";
+    bamboo3.style.display = "none";
+    bamboo4.style.display = "none";
+    bamboo.style.transition = "all 3.5s linear";
+    bamboo.style.height = "1400px";
+    bamboo.style.width = "250px";
+  }
+
+  bambooTransition(bamboo);
+  bambooTransitionBack(bamboo1);
+  bambooTransitionBack(bamboo2);
+  bambooTransitionBack(bamboo3);
+  bambooTransitionBack(bamboo4);
   var removeClasses = function() {
     ax.classList.remove('run-ax-anim');
     ax.offsetWidth;  // flush
@@ -35,10 +65,10 @@ document.addEventListener('DOMContentLoaded', function() {
       removeClasses();
       animCount++;
       if (animCount >= 3) {
+          bambooZoom();
           return;
       }
       addClasses();
     });
   });
-  
 });
