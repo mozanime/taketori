@@ -136,6 +136,31 @@
   animation: fujisan-kawa 4s 7s ease-out forwards;
 }
 
+@keyframes fujisan-kumo {
+  from {
+    transform: translate(100%);
+  }
+  to {
+    transform: translate(0%);
+  }
+}
+
+#scene-fujisan .kumo-1 {
+  position: absolute;
+  width: 16%;
+  top: 34%;
+  left: 47%;
+  animation: fujisan-kumo 20s 3s linear both;
+}
+
+#scene-fujisan .kumo-2 {
+  position: absolute;
+  width: 16%;
+  top: 18%;
+  left: 60%;
+  animation: fujisan-kumo 20s 3s linear both;
+}
+
 @keyframes fujisan-dropBlur {
   to { filter: blur(0px); }
 }
