@@ -1,6 +1,6 @@
 @keyframes axIntroAnim {
-  from { bottom: -20vh; }
-  to { bottom: 20vh; }
+  from { bottom: -200px; }
+  to { bottom: 200px; }
 }
 
 @keyframes axSwing {
@@ -39,12 +39,12 @@
   background-size: cover;
 }
 
-.bamboo, .bamboo-back1, .bamboo-back2, .bamboo-back3, .bamboo-back4 {
+.bamboo {
   position: absolute;
   height: 700.47px;
   width: 130px;
   left: 40%;
-  bottom: 0px;
+  bottom: -20px;
 }
 
 .bamboo-back1, .bamboo-back2, bamboo-back3, bamboo-back4 {
@@ -55,27 +55,27 @@
 }
 
 .run-bamboo-back1-anim {
-  animation: glitch 500ms 1200ms cubic-bezier(0.25, 0.46, 0.45, 0.94) reverse both;
+  animation: glitch 400ms 1100ms cubic-bezier(0.25, 0.46, 0.45, 0.94) reverse both;
 }
 .run-bamboo-back2-anim {
-  animation: glitch 500ms 1200ms cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation: glitch 400ms 1100ms cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 .run-bamboo-back3-anim {
-  animation: glitch2 500ms 1200ms cubic-bezier(0.25, 0.46, 0.45, 0.94) reverse both;
+  animation: glitch2 400ms 1100ms cubic-bezier(0.25, 0.46, 0.45, 0.94) reverse both;
 }
 .run-bamboo-back4-anim {
-  animation: glitch2 500ms 1200ms cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation: glitch2 400ms 1100ms cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
 #scene-ax-vs-bamboo .ax {
   position: absolute;
   width: 18%;
   bottom: -200px;
-  left: 50%;
+  left: 55%;
   transition: bottom 1.5s;
   transform-origin: 0 100%;
 }
 
 .run-ax-anim {
-  animation: axSwing 500ms 2 700ms linear alternate-reverse;
+  animation: axSwing 400ms 2 700ms linear alternate-reverse;
 }
