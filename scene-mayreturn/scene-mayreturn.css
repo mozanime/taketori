@@ -76,7 +76,7 @@
   right: 21.5%;
   width: 7%;
   animation: mayreturn-come-kuruma 5s 4s cubic-bezier(0.95, 0.05, 0.795, 0.035) forwards,
-             mayreturn-return-kuruma 10s 10s 0.5 linear forwards
+             mayreturn-return-kuruma 20s 10s linear infinite
 }
 
 #scene-mayreturn .kuruma {
@@ -120,6 +120,12 @@
   }
 }
 
+@keyframes mayreturn-dammy {
+  to {
+    opacity: 1;
+  }
+}
+
 #scene-mayreturn .hime {
   position: absolute;
   left: 15%;
@@ -127,6 +133,6 @@
   height: 60%;
   z-index: 1;
   animation: mayreturn-ride-hime 1s 9s forwards,
-             mayreturn-return-hime 10s 10s linear 0.5 forwards;
-
+             mayreturn-return-hime 20s 10s linear infinite,
+             mayreturn-dammy 10s 10s linear;
 }
