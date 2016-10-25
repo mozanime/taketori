@@ -125,6 +125,7 @@
   left: 15%;
   bottom: -25%;
   height: 60%;
+  z-index: 1;
   animation: mayreturn-ride-hime 1s 9s forwards,
              mayreturn-return-hime 10s 10s linear 0.5 forwards;
 
