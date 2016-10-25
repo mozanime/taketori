@@ -11,9 +11,8 @@ body {
   position: relative;
   width: 1280px;
   height: 720px;
-  margin-left: auto;
-  margin-right: auto;
   overflow: hidden;
+  transform-origin: 0% 0%;
 }
 iframe {
   position: absolute;
@@ -35,6 +34,7 @@ iframe.active {
   </div>
 </body>
 <script>
+const viewport = document.querySelector('.viewport');
 const scenes = [ { url: 'scene-intro' },
                  { url: 'scene-take' },
                  { url: 'scene-ax-vs-bamboo' },
@@ -45,7 +45,6 @@ const scenes = [ { url: 'scene-intro' },
                  { url: 'scene-mayreturn' },
                  { url: 'scene-goback' },
                  { url: 'scene-fujisan' } ];
-const viewport = document.querySelector('.viewport');
 
 scenes.forEach((scene, i) => {
   scene.iframe = document.createElement('iframe');
@@ -91,5 +90,18 @@ function activateScene(index) {
     }, 2000);
   });
 }
+
+function onResize() {
+  const scaleX = viewport.clientWidth / window.innerWidth;
+  const scaleY = viewport.clientHeight / window.innerHeight;
+  const scale = 1 / Math.max(scaleX, scaleY);
+  const transform = `scale(${scale})`;
+  const translateX = (window.innerWidth - viewport.clientWidth * scale) / 2;
+  const translateY = (window.innerHeight - viewport.clientHeight * scale) / 2;
+  viewport.style.transform =
+    `translate(${translateX}px, ${translateY}px) scale(${scale}) `;
+};
+window.onresize = onResize;
+onResize();
 </script>
 </html>
