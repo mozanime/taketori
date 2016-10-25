@@ -37,7 +37,7 @@ function createHoshiAnimation(container) {
   if (animation.finished) {
     animation.effect.timing.iterations = 1;
     animation.finished.then(function() {
-      hana.remove();
+      hoshi.remove();
       createHoshiAnimation(container);
     });
   }
