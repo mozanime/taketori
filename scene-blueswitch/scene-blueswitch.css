@@ -1,0 +1,108 @@
+@keyframes blueswitch-from-left {
+  to {
+    transform: translate(100%);
+  }
+}
+
+@keyframes blueswitch-from-right {
+  to {
+    transform: translate(-100%);
+  }
+}
+
+@keyframes blueswitch-to-fit {
+  to {
+    transform: translate(0%);
+    opacity: 1;
+  }
+}
+
+#scene-blueswitch {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+#scene-blueswitch .kumos {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+#scene-blueswitch .kumos .kumo-container {
+  position: absolute;
+  height: 50%;
+  width: 100%;
+}
+
+#scene-blueswitch .kumos .kumo-container:nth-child(1) {
+  top: 0;
+  transform: translate(-100%);
+  animation: blueswitch-from-left 3s 0s linear;
+}
+
+#scene-blueswitch .kumos .kumo-container:nth-child(2) {
+  top: 25%;
+  transform: translate(-100%);
+  animation: blueswitch-from-left 3s 0.25s linear;
+}
+
+#scene-blueswitch .kumos .kumo-container:nth-child(3) {
+  bottom: 0;
+  transform: translate(-100%);
+  animation: blueswitch-from-left 3s 0.5s linear;
+}
+
+#scene-blueswitch .kumos .kumo-container:nth-child(4) {
+  top: 0;
+  transform: translate(100%);
+  animation: blueswitch-from-right 3s 0.5s linear;
+}
+
+#scene-blueswitch .kumos .kumo-container:nth-child(5) {
+  top: 25%;
+  transform: translate(100%);
+  animation: blueswitch-from-right 3s 0.25s linear;
+}
+
+#scene-blueswitch .kumos .kumo-container:nth-child(6) {
+  bottom: 0;
+  transform: translate(100%);
+  animation: blueswitch-from-right 3s 0s linear;
+}
+
+#scene-blueswitch .kumos .kumo-container .kumo {
+  height: 100%;
+}
+
+#scene-blueswitch .obis {
+  width: 100%;
+  height: 100%;
+}
+
+#scene-blueswitch .obis .obi {
+  background-color: #069;
+  width: 100%;
+  height: 10%;
+  opacity: 0;
+}
+
+#scene-blueswitch .obis .obi:nth-child(-n+10) {
+  transform: translate(100%);
+}
+
+#scene-blueswitch .obis .obi:nth-child(-n+3) {
+  animation: blueswitch-to-fit 1.5s 1.25s linear forwards;
+}
+
+#scene-blueswitch .obis .obi:nth-child(n+4) {
+  animation: blueswitch-to-fit 1.5s 1s linear forwards;
+}
+
+#scene-blueswitch .obis .obi:nth-child(n+8) {
+  animation: blueswitch-to-fit 1.5s 0.8s linear forwards;
+}
