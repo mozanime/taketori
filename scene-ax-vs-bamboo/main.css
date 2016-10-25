@@ -79,3 +79,7 @@
 .run-ax-anim {
   animation: axSwing 400ms 2 700ms linear alternate-reverse;
 }
+
+#dummy {
+  animation: axSwing 1ms 6000ms;
+}
