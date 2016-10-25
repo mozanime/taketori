@@ -20,12 +20,6 @@
   }
 }
 
-@keyframes fujisan-tsuki-zoom-out {
-  to {
-    transform: translate(40%, -55%) scale(0.6);
-  }
-}
-
 @keyframes fujisan-zoom-out {
   to {
     transform: translate(0%, 0%) scale(1);
@@ -111,20 +105,62 @@
 
 #scene-fujisan .hime {
   position: absolute;
-  width: 2%;
-  top: 30%;
-  left: 59.4%;
+  width: 1%;
+  top: 29.6%;
+  left: 59.7%;
   opacity: 0;
+  transform: rotate(-20deg);
   animation: fujisan-show 2s 6s linear forwards;
 }
 
 #scene-fujisan .kuruma {
   position: absolute;
-  width: 6%;
-  top: 26%;
-  left: 57.4%;
+  width: 4%;
+  top: 27%;
+  left: 58%;
   opacity: 0;
+  transform: rotate(-20deg);
   animation: fujisan-show 2s 6s linear forwards;
+}
+
+@keyframes fujisan-kawa {
+  to {
+    opacity: 1;
+  }
+}
+
+#scene-fujisan .kawa {
+  position: absolute;
+  width: 30%;
+  top: 34%;
+  right: 42%;
+  opacity: 0;
+  animation: fujisan-kawa 4s 7s ease-out forwards;
+}
+
+@keyframes fujisan-kumo {
+  from {
+    transform: translate(100%);
+  }
+  to {
+    transform: translate(0%);
+  }
+}
+
+#scene-fujisan .kumo-1 {
+  position: absolute;
+  width: 16%;
+  top: 34%;
+  left: 47%;
+  animation: fujisan-kumo 20s 3s linear both;
+}
+
+#scene-fujisan .kumo-2 {
+  position: absolute;
+  width: 16%;
+  top: 18%;
+  left: 60%;
+  animation: fujisan-kumo 20s 3s linear both;
 }
 
 @keyframes fujisan-dropBlur {
@@ -140,8 +176,8 @@
   color: white;
   opacity: 0;
   filter: blur(0.5rem);
-  animation: fujisan-dropBlur 3s 9s ease-out forwards,
-             fujisan-show 3s 9s ease-out forwards;
+  animation: fujisan-dropBlur 3s 12s ease-out forwards,
+             fujisan-show 3s 12s ease-out forwards;
 }
 
 #scene-fujisan p span:nth-child(1) {
