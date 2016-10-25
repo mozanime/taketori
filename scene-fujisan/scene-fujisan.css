@@ -20,12 +20,6 @@
   }
 }
 
-@keyframes fujisan-tsuki-zoom-out {
-  to {
-    transform: translate(40%, -55%) scale(0.6);
-  }
-}
-
 @keyframes fujisan-zoom-out {
   to {
     transform: translate(0%, 0%) scale(1);
