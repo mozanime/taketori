@@ -10,7 +10,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
   ax.addEventListener("transitionend", function() {
     ax.classList.add('run-ax-anim');
-      //    bamboo.classList.add('run-bamboo-anim');
     bamboo1.classList.add('run-bamboo-back1-anim');
     bamboo2.classList.add('run-bamboo-back2-anim');
     bamboo3.classList.add('run-bamboo-back3-anim');
