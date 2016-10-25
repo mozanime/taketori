@@ -1,3 +1,55 @@
+@keyframes house-show {
+  to { opacity: 1; }
+}
+
+@keyframes house-hide {
+  to { opacity: 0; }
+}
+
+@keyframes house-kumo-container {
+  to {
+    transform: translate(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes house-kumo {
+  to {
+    transform: translate(-5%);
+  }
+}
+
+@keyframes house-heart-yurayura {
+  to {
+    transform: translate(-1%) rotate(-1deg);
+  }
+  from {
+    transform: translate(1%) rotate(1deg);
+  }
+}
+
+@keyframes house-heart {
+  to {
+    transform: translate(0, -50%) scale(0.3);
+    opacity: 1;
+  }
+}
+
+@keyframes house-heart-kowareta {
+  from {
+    transform: translate(0, -50%) scale(0.3);
+    opacity: 1;
+  }
+  to {
+    transform: translate(50%, 0%) scale(0.1) rotate(90deg);
+    opacity: 1;
+  }
+}
+
+@keyframes house-dropBlur {
+  to { filter: blur(0px); }
+}
+
 #scene-house {
   position: absolute;
   top: 0;
@@ -10,21 +62,93 @@
 
 #scene-house .house {
   height: 100%;
-  transform: translate(20%, 1%) scale(1.9);
+  transform: translate(44%, 1%) scale(1.9);
 }
 
-#scene-house .hime {
+#scene-house .hime-container {
   position: absolute;
-  top: 10%;
-  left: 10%;
-  width: 15%;
+  top: 20%;
+  left: 12%;
+  width: 13%;
 }
 
-#scene-house .mikado {
+#scene-house .hime-container img {
+  width: 100%;
+  height: 100%;
+}
+
+#scene-house .hime-container .hime {
   position: absolute;
-  bottom: 10%;
-  right: 10%;
-  width: 15%;
+  top: -3%;
+  left: 0%;
+  animation: house-hide 0s 6s forwards;
+  z-index: 1;
+}
+
+#scene-house .hime-container .hime-komatta {
+  position: absolute;
+  top: -3%;
+  left: 0%;
+  animation: house-hide 0s 8s forwards;
+}
+
+#scene-house .hime-container .hime-iya {
+  position: absolute;
+  top: -3%;
+  left: 0%;
+  opacity: 0;
+  animation: house-show 0.05s 8s alternate infinite;
+}
+
+#scene-house .hime-container .hime-iyaiya {
+  opacity: 0;
+  animation: house-show 0.05s 8s alternate-reverse infinite;
+}
+
+#scene-house .mikado-container {
+  position: absolute;
+  bottom: 7%;
+  right: 16%;
+  width: 12%;
+}
+
+#scene-house .mikado-container img {
+  width: 100%;
+  height: 100%;
+}
+
+#scene-house .mikado-container .mikado {
+  position: absolute;
+  top: -2%;
+  animation: house-hide 0s 8s forwards;
+}
+
+#scene-house .heart-container {
+  position: absolute;
+  bottom: 15%;
+  right: 9%;
+  width: 12%;
+  height: calc(12% / 9 * 16);
+  animation: house-heart-yurayura 0.5s linear alternate infinite;
+}
+
+#scene-house .heart-container img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: scale(0.1);
+}
+
+#scene-house .heart-container .heart {
+  opacity: 0;
+  animation: house-heart 3s 0s ease-in forwards,
+             house-hide 0s 8s forwards;
+}
+
+#scene-house .heart-container .heart-kowareta {
+  opacity: 0;
+  animation: house-show 0s 8s forwards,
+             house-heart-kowareta 2s 8s forwards;
 }
 
 #scene-house .kumos {
@@ -35,64 +159,32 @@
   height: 100%;
 }
 
-#scene-house .kumo {
+#scene-house .kumo-container {
   position: absolute;
+  width: 100%;
   transform: translate(-100%);
 }
 
-@keyframes house-kumo {
-  to {
-    transform: translate(100%);
-    opacity: 0;
-  }
+#scene-house .kumos .kumo-container .kumo {
+  height: 100%;
+  animation: house-kumo 10s linear alternate infinite;
 }
 
-#scene-house .kumos .kumo:nth-child(1) {
-  animation: house-kumo 30s 5s linear infinite;
+#scene-house .kumos .kumo-container:nth-child(1) {
+  height: 13%;
+  animation: house-kumo-container 60s 0s linear infinite;
 }
 
-#scene-house .kumos .kumo:nth-child(2) {
+#scene-house .kumos .kumo-container:nth-child(2) {
+  height: 30%;
   bottom: 2%;
-  animation: house-kumo 30s 10s linear infinite;
+  animation: house-kumo-container 60s 10s linear infinite;
 }
 
-#scene-house .kumos .kumo:nth-child(3) {
+#scene-house .kumos .kumo-container:nth-child(3) {
+  height: 31%;
   top: 2%;
-  animation: house-kumo 30s 15s linear infinite;
-}
-
-#scene-house .kumos .kumo:nth-child(4) {
-  bottom: 0;
-  animation: house-kumo 30s 20s linear infinite;
-}
-
-#scene-house .kumos .kumo:nth-child(5) {
-  animation: house-kumo 30s 30s linear infinite;
-}
-
-@keyframes house-heart {
-  to {
-    transform: translate(0, -50%) scale(0.3);
-    opacity: 1;
-  }
-}
-
-#scene-house .heart {
-  position: absolute;
-  bottom: 15%;
-  right: 3%;
-  width: 15%;
-  opacity: 0;
-  transform: scale(0.1);
-  animation: house-heart 3s 3s ease-in forwards;
-}
-
-@keyframes house-dropBlur {
-  to { filter: blur(0px); }
-}
-
-@keyframes house-show {
-  to { opacity: 1; }
+  animation: house-kumo-container 60s 20s linear infinite;
 }
 
 #scene-house p:lang(ja) {
