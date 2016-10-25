@@ -1,0 +1,80 @@
+@keyframes axIntroAnim {
+  from { bottom: -20vh; }
+  to { bottom: 20vh; }
+}
+
+@keyframes axSwing {
+  from { transform: rotate(-30deg); }
+  to { transform: rotate(0deg); }
+}
+
+@keyframes glitch {
+  0%  { transform: translate(0); }
+  20% { transform: translate(-30px, 30px); }
+  40% { transform: translate(-30px, -30px); }
+  60% { transform: translate(30px, 30px); }
+  80% { transform: translate(30px, -30px); }
+  to {  transform: translate(0); }
+}
+
+@keyframes glitch2 {
+  0%  { transform: translate(0); }
+  20% { transform: translate(30px, -30px); }
+  40% { transform: translate(30px, 30px); }
+  60% { transform: translate(-30px, -30px); }
+  80% { transform: translate(-30px, 30px); }
+  to {  transform: translate(0); }
+}
+
+#scene-ax-vs-bamboo {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: bottom;
+  background-image: url(materials/bg-color-export.svg);
+  background-size: cover;
+}
+
+.bamboo, .bamboo-back1, .bamboo-back2, .bamboo-back3, .bamboo-back4 {
+  position: absolute;
+  height: 100.1%;
+  left: 40%;
+  bottom: 0px;
+}
+
+.bamboo-back1, .bamboo-back2, bamboo-back3, bamboo-back4 {
+  mix-blend-mode: multiply;
+  height: 99%;
+  left: 40.1%;
+}
+
+
+.run-bamboo-back1-anim {
+  animation: glitch 500ms 1200ms cubic-bezier(0.25, 0.46, 0.45, 0.94) reverse both;
+}
+.run-bamboo-back2-anim {
+  animation: glitch 500ms 1200ms cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+.run-bamboo-back3-anim {
+  animation: glitch2 500ms 1200ms cubic-bezier(0.25, 0.46, 0.45, 0.94) reverse both;
+}
+.run-bamboo-back4-anim {
+  animation: glitch2 500ms 1200ms cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+#scene-ax-vs-bamboo .ax {
+  position: absolute;
+  width: 18%;
+  bottom: -200px;
+  left: 60%;
+  transition: bottom 1.5s;
+  transform-origin: 0 100%;
+}
+
+.run-ax-anim {
+  animation: axSwing 500ms 2 700ms linear alternate-reverse;
+}
