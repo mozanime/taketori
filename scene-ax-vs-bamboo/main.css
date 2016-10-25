@@ -41,17 +41,15 @@
 
 .bamboo {
   position: absolute;
-  height: 700.47px;
-  width: 130px;
-  left: 40%;
-  bottom: -20px;
+  height: 340.47px;
+  width: 75px;
+  left: 44%;
+  bottom: 240px;
+  transition: all 1.5s linear;
 }
 
 .bamboo-back1, .bamboo-back2, bamboo-back3, bamboo-back4 {
   mix-blend-mode: multiply;
-  height: 700px;
-  width: 126px;
-  left: 40.2%;
 }
 
 .run-bamboo-back1-anim {
