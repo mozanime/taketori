@@ -10,15 +10,15 @@
 
 @keyframes bambooIntro {
   from {
-    height: 340.47px;
+    height: 340px;
     width: 75px;
-    left: 44%;
+    left: 630px;
     bottom: 240px;
   }
   to {
-    height: 700.47px;
+    height: 700px;
     width: 130px;
-    left: 40%;
+    left: 595px;
     bottom: 0px;
   }
 }
@@ -52,20 +52,20 @@
 
 .bamboo {
   position: absolute;
-  height: 340.47px;
-  width: 75px;
-  left: 44%;
-  bottom: 240px;
+  height: 700px;
+  width: 130px;
+  left: 595px;
+  bottom: 0px;
   animation: bambooIntro 1.5s forwards;
 }
 
 .bamboo-back1, .bamboo-back2, .bamboo-back3, .bamboo-back4 {
   position: absolute;
   mix-blend-mode: multiply;
-  height: 700px;
+  height: 695px;
   width: 123px;
-  left:  40.3%;
-  bottom: 0px;
+  left:  599px;
+  bottom: 2px;
   display: none;
 }
 
