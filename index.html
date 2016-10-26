@@ -34,12 +34,15 @@ iframe.active {
   </div>
 </body>
 <script>
+const DEFAULT_TRANSITION = 'opacity 2s';
 const viewport = document.querySelector('.viewport');
 const scenes = [ { url: 'scene-intro' },
                  { url: 'scene-take' },
                  { url: 'scene-ax-vs-bamboo' },
-                 { url: 'scene-born' },
-                 { url: 'scene-grow' },
+                 { url: 'scene-born',
+                   startTransition: 'opacity 0s' },
+                 { url: 'scene-grow',
+                   startTransition: 'opacity 0.1s' },
                  { url: 'scene-house',
                    delayTillDeactivate: 1000 },
                  { url: 'scene-blueswitch',
@@ -52,8 +55,7 @@ const scenes = [ { url: 'scene-intro' },
                  { url: 'scene-mayreturn',
                    delayTillDeactivate: 3000 },
                  { url: 'scene-goback',
-                   startTransition: 'opacity 6s',
-                   endTransition: 'opacity 2s', },
+                   startTransition: 'opacity 6s' },
                  { url: 'scene-fujisan' } ];
 
 scenes.forEach((scene, i) => {
@@ -103,6 +105,8 @@ function activateScene(index) {
       setTimeout(() => {
         if (scene.endTransition) {
           scene.iframe.style.transition = scene.endTransition;
+        } else if (scene.startTransition) {
+          scene.iframe.style.transition = DEFAULT_TRANSITION;
         }
         scene.iframe.classList.remove('active');
       }, scene.delayTillDeactivate || 0);
