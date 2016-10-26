@@ -134,5 +134,5 @@
   z-index: 1;
   animation: mayreturn-ride-hime 1s 9s forwards,
              mayreturn-return-hime 20s 10s linear infinite,
-             mayreturn-dammy 10s 10s linear;
+             mayreturn-dammy 5s 10s linear;
 }

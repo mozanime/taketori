@@ -46,10 +46,14 @@ const scenes = [ { url: 'scene-intro' },
                    delayTillNextScene: 1500,
                    delayTillDeactivate: 3000,
                    zIndex: 1,
-                   transition: 'opacity 0s' },
+                   startTransition: 'opacity 0s',
+                   endTransition: 'opacity 0s', },
                  { url: 'scene-cry' },
-                 { url: 'scene-mayreturn' },
-                 { url: 'scene-goback' },
+                 { url: 'scene-mayreturn',
+                   delayTillDeactivate: 3000 },
+                 { url: 'scene-goback',
+                   startTransition: 'opacity 6s',
+                   endTransition: 'opacity 2s', },
                  { url: 'scene-fujisan' } ];
 
 scenes.forEach((scene, i) => {
@@ -74,8 +78,8 @@ function activateScene(index) {
   if (scene.zIndex) {
     scene.iframe.style.zIndex = scene.zIndex;
   }
-  if (scene.transition) {
-    scene.iframe.style.transition = scene.transition;
+  if (scene.startTransition) {
+    scene.iframe.style.transition = scene.startTransition;
   }
 
   // Look for paused animations to un-pause
@@ -97,6 +101,9 @@ function activateScene(index) {
     }
     setTimeout(() => {
       setTimeout(() => {
+        if (scene.endTransition) {
+          scene.iframe.style.transition = scene.endTransition;
+        }
         scene.iframe.classList.remove('active');
       }, scene.delayTillDeactivate || 0);
       activateScene(index + 1);
