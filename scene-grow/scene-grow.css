@@ -82,7 +82,7 @@ p span {
 #ending-text-1 {
   position: absolute;
   top: 128px;
-  right: 118px;
+  right: 190px;
 }
 
 #ending-text-1 span:nth-child(1) {
@@ -96,12 +96,6 @@ p span {
 }
 #ending-text-1 span:nth-child(4) {
   animation-delay: 10.75s;
-}
-#ending-text-1 span:nth-child(5) {
-  animation-delay: 11s;
-}
-#ending-text-1 span:nth-child(6) {
-  animation-delay: 11.25s;
 }
 
 #ending-text-2 {
