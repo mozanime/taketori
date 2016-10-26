@@ -94,14 +94,14 @@
 
 #scene-cry .namida {
   position: absolute;
-  left: 19.5%;
+  left: 20.5%;
   top: 64%;
   opacity: 0;
-  transform: scale(0.5);
+  width: 2%;
 }
 
 #scene-cry .namida:nth-child(odd) {
-  left: 27%;
+  left: 27.6%;
 }
 
 #scene-cry .namida:nth-child(1) {
