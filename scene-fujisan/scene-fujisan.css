@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'Honoka';
+  src: url('../fonts/honoka-maru.ttf');
+}
+
 #scene-fujisan {
   position: absolute;
   top: 0;
@@ -167,7 +172,12 @@
   to { filter: blur(0px); }
 }
 
+#scene-fujisan p {
+  font-size: 35px;
+}
+
 #scene-fujisan p:lang(ja) {
+  font-family: 'Honoka', serif;
   writing-mode: vertical-rl;
 }
 
