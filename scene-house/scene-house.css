@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'Honoka';
+  src: url('../fonts/honoka-maru.ttf');
+}
+
 @keyframes house-show {
   to { opacity: 1; }
 }
@@ -55,8 +60,12 @@
   }
 }
 
-@keyframes house-dropBlur {
+@keyframes drop-blur {
   to { filter: blur(0px); }
+}
+
+@keyframes reveal-text {
+  to { mask-size: 100% 300%; }
 }
 
 #scene-house {
@@ -197,24 +206,31 @@
   animation: house-kumo-container 60s 20s linear infinite;
 }
 
+#scene-house p {
+  font-size: 30px;
+}
+
 #scene-house p:lang(ja) {
+  font-family: 'Honoka', serif;
   writing-mode: vertical-rl;
 }
 
 #scene-house p span {
   position: absolute;
-  opacity: 0;
   filter: blur(0.5rem);
-  animation: house-dropBlur 3s 15s ease-out forwards,
-             house-show 3s 15s ease-out forwards;
+  mask: linear-gradient(white 0%, transparent 100%) top;
+  mask-size: 100% 0%;
+  animation: drop-blur 1.5s 15s ease-out forwards,
+             reveal-text 1.5s 15s ease-out forwards;
 }
 
 #scene-house p span:nth-child(1) {
-  top: 15%;
-  right: 5%;
+  top: 10%;
+  right: 6%;
 }
 
 #scene-house p span:nth-child(2) {
-  top: 25%;
-  right: calc(5% + 1.5em);
+  top: 20%;
+  right: calc(6% + 1.5em);
+  animation-delay: 15.5s, 15.5s;
 }
