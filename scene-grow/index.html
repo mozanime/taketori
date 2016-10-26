@@ -3,36 +3,44 @@
   <head>
     <meta charset=utf-8>
     <style>
-    body {
-      overflow: hidden;
-    }
     </style>
-    <link rel="stylesheet" href="scene-baby.css">
-    <link rel="stylesheet" href="scene-girl.css">
-    <link rel="stylesheet" href="scene-lady.css">
     <link rel="stylesheet" href="scene-grow.css">
     <script src="scene-lady.js"></script>
     <title>Grow</title>
   </head>
   <body>
     <section id="scene-grow">
-      <section id="scene-baby">
+      <section id="bg">
         <div class="nami"></div>
+        <div class="koushi"></div>
+        <div class="hanas"></div>
+      </section>
+      <p lang="ja" class="narrative" id="intro-text">
+        <span>この児、養ふほどに、</span>
+        <span>すくすくと大きになりまさる</span>
+      </p>
+      <section id="scene-baby">
         <img class="hime" src="materials/baby.svg">
         <img class="take-hidari" src="materials/baby-take-hidari.svg">
         <img class="take-migi" src="materials/baby-take-migi.svg">
       </section>
       <section id="scene-girl">
-        <div class="koushi"></div>
         <img class="hime" src="materials/girl.svg">
       </section>
       <section id="scene-lady">
-        <div class="hanas"></div>
         <img class="hime" src="materials/lady.svg">
       </section>
-      <p lang="ja">
-        <span>この児、養ふほどに、</span>
-        <span>すくすくと大きになりまさる</span>
+      <p lang="ja" class="narrative" id="ending-text-1">
+        <span>三月ばかりになるほどに、</span>
+        <span>よきほどなる人になりぬれば、</span>
+        <span>どう上げなどさうして、</span>
+        <span>かみ上げさせ、も着す。</span>
+        <span>帳のうちよりも出ださず、</span>
+        <span>いつき養ふ。</span>
+      </p>
+      <p lang="ja" class="narrative" id="ending-text-2">
+        <span>帳のうちよりも出ださず、</span>
+        <span>いつき養ふ。</span>
       </p>
     </section>
   </body>

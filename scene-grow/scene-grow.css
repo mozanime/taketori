@@ -1,62 +1,276 @@
-@keyframes grow-slide-in {
-  from {
-    transform: translate(100%);
-  }
-  to {
-    transform: translate(0%);
-  }
+/*
+ * Overall styling
+ */
+@font-face {
+  font-family: 'Honoka';
+  src: url('../fonts/honoka-maru.ttf');
 }
 
-@keyframes grow-slide-out {
-  from {
-    transform: translate(0%);
-  }
-  to {
-    transform: translate(-100%);
-  }
+body {
+  margin: 0;
+  overflow: hidden;
+  font-family: 'Honoka', serif;
+  background-color: #bdf5e0;
 }
 
-#scene-baby {
-  animation: grow-slide-out 2s 4s forwards;
+/*
+ * Scene transitions
+ */
+
+@keyframes slide-in {
+  to { transform: translate(0) }
 }
 
-#scene-girl {
-  transform: translate(100%);
-  animation: grow-slide-in 2s 4s forwards,
-             grow-slide-out 2s 8s forwards;
+@keyframes slide-out {
+  from { transform: translate(0) }
+  to { transform: translate(-1280px) }
 }
 
-#scene-lady {
-  transform: translate(100%);
-  animation: grow-slide-in 2s 8s forwards;
-}
+/*
+ * Text transitions
+ */
 
-@keyframes grow-dropBlur {
+@keyframes drop-blur {
   to { filter: blur(0px); }
 }
 
-@keyframes grow-show {
-  to { opacity: 1; }
+@keyframes reveal-text {
+  to { mask-size: 100% 300%; }
 }
 
-#scene-grow p:lang(ja) {
+@keyframes fade-out {
+  to { opacity: 0 }
+}
+
+p:lang(ja) {
   writing-mode: vertical-rl;
 }
 
-#scene-grow p span {
-  position: absolute;
-  opacity: 0;
+p span {
   filter: blur(0.5rem);
-  animation: grow-dropBlur 2s 3s ease-out forwards,
-             grow-show 1s 3s ease-out forwards;
+  mask: linear-gradient(white 0%, transparent 100%) top;
+  mask-size: 100% 0%;
+  font-size: 35px;
+  animation: drop-blur 1.5s 1s ease-out forwards,
+             reveal-text 1.8s 1.5s ease-out forwards;
 }
 
-#scene-grow p span:nth-child(1) {
+#intro-text span {
+  position: absolute;
+}
+
+#intro-text span:nth-child(1) {
   top: 15%;
   right: 15%;
 }
 
-#scene-grow p span:nth-child(2) {
+#intro-text span:nth-child(2) {
   top: 25%;
   right: calc(15% + 1.5em);
+  animation-delay: 2s, 2.5s;
+}
+
+#intro-text {
+  animation: fade-out 0.01s 8.8s forwards step-start;
+}
+
+#ending-text-1 span, #ending-text-2 span {
+  display: block;
+  margin-right: 8px;
+}
+
+#ending-text-1 {
+  position: absolute;
+  top: 128px;
+  right: 118px;
+}
+
+#ending-text-1 span:nth-child(1) {
+  animation-delay: 10s;
+}
+#ending-text-1 span:nth-child(2) {
+  animation-delay: 10.25s;
+}
+#ending-text-1 span:nth-child(3) {
+  animation-delay: 10.5s;
+}
+#ending-text-1 span:nth-child(4) {
+  animation-delay: 10.75s;
+}
+#ending-text-1 span:nth-child(5) {
+  animation-delay: 11s;
+}
+#ending-text-1 span:nth-child(6) {
+  animation-delay: 11.25s;
+}
+
+#ending-text-2 {
+  position: absolute;
+  top: 128px;
+  left: 216px;
+}
+
+#ending-text-2 span:nth-child(1) {
+  animation-delay: 11.5s;
+}
+#ending-text-2 span:nth-child(2) {
+  animation-delay: 11.75s;
+}
+
+/*
+ * Baby scene
+ */
+
+@keyframes baby-take-hidari {
+  from { transform: rotate(0deg) }
+  to { transform: translate(0, 100%) rotate(-45deg) }
+}
+
+@keyframes baby-take-migi {
+  from { transform: rotate(0deg) }
+  to { transform: translate(0, 100%) rotate(45deg) }
+}
+
+#scene-baby {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: slide-out 2s 5s forwards;
+}
+
+#bg .nami {
+  position: absolute;
+  top: 5%;
+  left: 0;
+  height: 90%;
+  width: 4000px;
+  transform: translate(100vw);
+  background-image: url(materials/nami.svg);
+  background-size: contain 80%;
+  background-position-y: 50%;
+  background-repeat: repeat-x;
+  animation: slide-nami 5.5s 1s linear forwards;
+}
+
+@keyframes slide-nami {
+  to { transform: translate(calc(-4000px + 100vw)); }
+}
+
+#scene-baby .hime {
+  width: 20%;
+  z-index: 1;
+}
+
+#scene-baby .take-hidari {
+  position: absolute;
+  left: 30%;
+  bottom: 0;
+  width: 20%;
+  animation: baby-take-hidari 1s ease-in forwards;
+}
+
+#scene-baby .take-migi {
+  position: absolute;
+  right: 30%;
+  bottom: 0;
+  width: 20%;
+  animation: baby-take-migi 1.5s ease-out forwards;
+}
+
+/*
+ * Girl scene
+ */
+
+@keyframes girl-background {
+  from { background-position: 100%; }
+  to { background-position: 0%; }
+}
+
+#scene-girl, #bg .koushi {
+  transform: translate(100%);
+}
+
+#scene-girl {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: slide-in 2s 5s forwards,
+             slide-out 2s 8s forwards;
+}
+
+#scene-girl .hime {
+  width: 25%;
+  z-index: 1;
+}
+
+#bg .koushi {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 200%;
+  background-image: url(materials/koushi.svg);
+  background-size: contain;
+  background-position-y: 50%;
+  background-color: #fffbc4;
+  animation: girl-background 2s infinite linear,
+             slide-in 2s 5s forwards,
+             slide-out-koushi 2s 8s forwards;
+}
+
+@keyframes slide-out-koushi {
+  from { transform: translate(0) }
+  to { transform: translate(-100%) }
+}
+
+/*
+ * Lady scene
+ */
+
+#scene-lady {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#scene-lady .hime {
+  width: 25%;
+  z-index: 1;
+}
+
+#scene-lady .hana {
+  position: absolute;
+  background-image: url(materials/lady-hana.svg);
+  background-size: cover;
+  width: 100px;
+  height: 100px;
+}
+
+#bg .hanas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #ffc7de;
+}
+
+#scene-lady, #bg .hanas {
+  transform: translate(100%);
+  animation: slide-in 2s 8s forwards;
 }
