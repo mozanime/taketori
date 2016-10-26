@@ -40,8 +40,13 @@ const scenes = [ { url: 'scene-intro' },
                  { url: 'scene-ax-vs-bamboo' },
                  { url: 'scene-born' },
                  { url: 'scene-grow' },
-                 { url: 'scene-house' },
-                 { url: 'scene-blueswitch' },
+                 { url: 'scene-house',
+                   delayTillDeactivate: 1000 },
+                 { url: 'scene-blueswitch',
+                   delayTillNextScene: 1500,
+                   delayTillDeactivate: 3000,
+                   zIndex: 1,
+                   transition: 'opacity 0s' },
                  { url: 'scene-cry' },
                  { url: 'scene-mayreturn' },
                  { url: 'scene-goback' },
@@ -66,6 +71,12 @@ scenes.forEach((scene, i) => {
 function activateScene(index) {
   const scene = scenes[index];
   scene.iframe.classList.add('active');
+  if (scene.zIndex) {
+    scene.iframe.style.zIndex = scene.zIndex;
+  }
+  if (scene.transition) {
+    scene.iframe.style.transition = scene.transition;
+  }
 
   // Look for paused animations to un-pause
   scene.iframe.contentDocument.getAnimations().forEach(animation => {
@@ -84,11 +95,12 @@ function activateScene(index) {
     if (index == scenes.length - 1) {
       return;
     }
-    // Just wait 2 seconds until the next scene for now. We'll fix this later.
     setTimeout(() => {
-      scene.iframe.classList.remove('active');
+      setTimeout(() => {
+        scene.iframe.classList.remove('active');
+      }, scene.delayTillDeactivate || 0);
       activateScene(index + 1);
-    }, 2000);
+    }, scene.delayTillNextScene || 2000);
   });
 }
 
