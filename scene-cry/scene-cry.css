@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'Honoka';
+  src: url('../fonts/honoka-maru.ttf');
+}
+
 #scene-cry {
   position: absolute;
   top: 0;
@@ -112,33 +117,40 @@
   animation: cry-namida 1s 5s ease-out infinite;
 }
 
-@keyframes cry-dropBlur {
+@keyframes drop-blur {
   to { filter: blur(0px); }
 }
 
-@keyframes cry-show {
-  to { opacity: 1; }
+@keyframes reveal-text {
+  to { mask-size: 100% 300%; }
+}
+
+#scene-cry p {
+  font-size: 30px;
 }
 
 #scene-cry p:lang(ja) {
+  font-family: 'Honoka', serif;
   writing-mode: vertical-rl;
 }
 
 #scene-cry p span {
   position: absolute;
   color: white;
-  opacity: 0;
   filter: blur(0.5rem);
-  animation: cry-dropBlur 2s 4s ease-out forwards,
-             cry-show 1s 4s ease-out forwards;
+  mask: linear-gradient(white 0%, transparent 100%) top;
+  mask-size: 100% 0%;
+  animation: drop-blur 3s 4s ease-out forwards,
+             reveal-text 3s 4s ease-out forwards;
 }
 
 #scene-cry p span:nth-child(1) {
-  top: 15%;
-  right: 10%;
+  top: 10%;
+  right: 5%;
 }
 
 #scene-cry p span:nth-child(2) {
-  top: 25%;
-  right: calc(10% + 1.5em);
+  top: 15%;
+  right: calc(5% + 1.5em);
+  animation-delay: 4.8s, 4.8s;
 }
