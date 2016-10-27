@@ -1,0 +1,89 @@
+body {
+  margin: 0;
+  overflow: hidden;
+  background: black;
+}
+
+#scene-axe {
+  position: relative;
+  width: 1280px;
+  height: 720px;
+  background-color: #bdf5e0;
+  background-size: cover;
+}
+
+.bamboo {
+  animation: bamboo-intro 1.5s both;
+}
+
+.bamboo, .bamboo-back {
+  position: absolute;
+  width: 131.348px;
+  left:  572.652px;
+  top: -50.466px;
+}
+
+@keyframes bamboo-intro {
+  from {
+    transform: scale(0.360478);
+  }
+}
+
+.bamboo-back {
+  mix-blend-mode: multiply;
+  transform: scale(0.98) translate(0, -3px);
+  opacity: 0;
+  animation: fade-in 0.01s 2.6s forwards,
+             glitch 0.4s 2.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+             glitch 0.4s 4.1s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+             glitch 0.4s 5.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+@keyframes fade-in {
+  to { opacity: 1; }
+}
+
+.bamboo-back:nth-child(1) {
+  animation-direction: normal, reverse, reverse, reverse;
+}
+.bamboo-back:nth-child(2) {
+}
+.bamboo-back:nth-child(3) {
+  animation-name: fade-in, glitch2, glitch2, glitch2;
+  animation-direction: normal, reverse, reverse, reverse;
+}
+.bamboo-back:nth-child(4) {
+  animation-name: fade-in, glitch2, glitch2, glitch2;
+}
+
+@keyframes glitch {
+  33% { transform: translate(40px, -10px); }
+  66% { transform: translate(-40px, 10px); }
+}
+
+@keyframes glitch2 {
+  33% { transform: translate(40px, 10px); }
+  66% { transform: translate(-40px, -10px); }
+}
+
+.axe {
+  position: absolute;
+  width: 18%;
+  bottom: -200px;
+  left: 55%;
+  transform-origin: 0 100%;
+
+  animation: axe-intro 1.5s linear forwards,
+             axe-swing 0.4s 2 2.2s linear alternate-reverse,
+             axe-swing 0.4s 2 3.7s linear alternate-reverse,
+             axe-swing 0.4s 2 5.2s linear alternate-reverse;
+}
+
+@keyframes axe-intro {
+  from { bottom: -200px; }
+  to   { bottom: 70px; }
+}
+
+@keyframes axe-swing {
+  from { transform: rotate(-25deg); }
+}
