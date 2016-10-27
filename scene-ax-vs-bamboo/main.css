@@ -1,3 +1,7 @@
+body {
+  overflow: hidden;
+}
+
 @keyframes axIntro {
     from { bottom: -200px; }
     to   { bottom: 70px; }
