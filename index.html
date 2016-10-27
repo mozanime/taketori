@@ -86,10 +86,8 @@ function activateScene(index) {
 
   // Look for paused animations to un-pause
   scene.iframe.contentDocument.getAnimations().forEach(animation => {
-    if (animation.playState == 'paused') {
-      animation.currentTime = 0;
-      animation.play();
-    }
+    animation.currentTime = 0;
+    animation.play();
   });
 
   const currentSceneEnd = Promise.all(
