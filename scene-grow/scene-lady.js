@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
   var container = document.querySelector("#scene-lady");
-  var hanaNumber = 5 + Math.floor(Math.random() * 10);
+  var hanaNumber = 40;
   for (var i = 0; i < hanaNumber; i++) {
     createHanaAnimation(container);
   }
@@ -12,7 +12,8 @@ function createHanaAnimation(container) {
   hana.style.left = Math.floor(Math.random() * 100) + "%";
   hana.style.top = Math.floor(Math.random() * 100) + "%";
   container.appendChild(hana);
-  var duration = 1000 + Math.floor(Math.random() * 1000);
+  var duration = 3000 + Math.floor(Math.random() * 1000);
+  var delay = 9000 + Math.floor(Math.random() * 5000);
   var easing = "linear";
   switch (Math.floor(Math.random() * 4)) {
     case 0 : {
@@ -28,17 +29,9 @@ function createHanaAnimation(container) {
       break;
     }
   }
-  var animation = hana.animate({ transform: ["scale(0.1)", "scale(1)"],
-                                 opacity: [1, 0] },
-                               { easing: "ease-in",
-                                 duration: duration,
-                                 fill: "forwards",
-                                 iterations: Infinity });
-  if (animation.finished) {
-    animation.effect.timing.iterations = 1;
-    animation.finished.then(function() {
-      hana.remove();
-      createHanaAnimation(container);
-    });
-  }
+  hana.animate({ transform: ["scale(0)", "scale(1)"] },
+               { easing: easing,
+                 duration: duration,
+                 delay: delay,
+                 fill: "both" });
 }
