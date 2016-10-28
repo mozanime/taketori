@@ -146,8 +146,8 @@ p span {
 }
 
 #scene-baby .hime {
+  position: relative;
   width: 20%;
-  z-index: 1;
 }
 
 #scene-baby .take-hidari {

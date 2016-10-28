@@ -3,15 +3,6 @@
   src: url('../fonts/honoka-maru.ttf');
 }
 
-@keyframes haloRotation {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 #scene-born {
   position: absolute;
   top: 0;
@@ -36,7 +27,16 @@
   position: relative;
   top: -5%;
   height: 110%;
-  animation: haloRotation 10s infinite linear;
+  animation: haloRotation 10s infinite linear,
+             fadeOut 1s 4s forwards;
+}
+
+@keyframes haloRotation {
+  to { transform: rotate(360deg) }
+}
+
+@keyframes fadeOut {
+  to { opacity: 0 }
 }
 
 #scene-born span {
