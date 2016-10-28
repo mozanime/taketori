@@ -111,8 +111,8 @@
 #scene-fujisan .hime {
   position: absolute;
   width: 1%;
-  top: 29.6%;
-  left: 59.7%;
+  top: 29.9%;
+  left: 59.8%;
   opacity: 0;
   transform: rotate(-20deg);
   animation: fujisan-show 2s 6s linear forwards;
