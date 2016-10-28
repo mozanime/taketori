@@ -173,7 +173,8 @@
 }
 
 #scene-fujisan p {
-  font-size: 35px;
+  font-size: 30px;
+  font-weight: 500;
 }
 
 #scene-fujisan p:lang(ja) {

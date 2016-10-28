@@ -50,9 +50,10 @@ p span {
   filter: blur(0.5rem);
   mask: linear-gradient(white 0%, transparent 100%) top;
   mask-size: 100% 0%;
-  font-size: 35px;
-  animation: drop-blur 1.5s 1s ease-out forwards,
-             reveal-text 1.8s 1.5s ease-out forwards;
+  font-size: 30px;
+  font-weight: 500;
+  animation: drop-blur 3s 1s ease-out forwards,
+             reveal-text 3.5s 1.5s ease-out forwards;
 }
 
 #intro-text span {
