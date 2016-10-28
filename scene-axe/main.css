@@ -13,7 +13,10 @@ body {
 }
 
 .bamboo {
-  animation: bamboo-intro 1.5s both;
+  animation: bamboo-intro 1.5s both,
+             wobble 0.3s 1.7s ease-in-out,
+             wobble 0.3s 3.2s ease-in-out,
+             wobble 0.3s 3.6s ease-in-out;
 }
 
 .bamboo, .bamboo-back {
@@ -29,18 +32,24 @@ body {
   }
 }
 
+@keyframes wobble {
+  15% { transform: translate(-10px); animation-timing-function: ease-out }
+  40% { transform: translate(10px); }
+  60% { transform: translate(-5px); }
+  80% { transform: translate(5px); }
+}
+
 .bamboo-back {
   mix-blend-mode: multiply;
-  transform: scale(0.98) translate(0, -3px);
   opacity: 0;
-  animation: fade-in 0.01s 2.6s forwards,
-             glitch 0.4s 2.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-             glitch 0.4s 4.1s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-             glitch 0.4s 5.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  animation: fade-in 0.01s 1.7s forwards,
+             glitch 0.3s 1.7s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+             glitch 0.3s 3.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+             glitch 0.3s 3.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 @keyframes fade-in {
-  to { opacity: 1; }
+  to { opacity: 0.3; }
 }
 
 .bamboo-back:nth-child(1) {
@@ -57,33 +66,36 @@ body {
 }
 
 @keyframes glitch {
-  33% { transform: translate(40px, -10px); }
-  66% { transform: translate(-40px, 10px); }
+  20% { transform: translate(30px, -8px); }
+  50% { transform: translate(-30px, 8px); }
+  70% { transform: translate(12px, -4px); }
+  90% { transform: translate(-12px, 4px); }
 }
 
 @keyframes glitch2 {
-  33% { transform: translate(40px, 10px); }
-  66% { transform: translate(-40px, -10px); }
+  20% { transform: translate(30px, 8px); }
+  50% { transform: translate(-30px, -8px); }
+  70% { transform: translate(12px, 4px); }
+  90% { transform: translate(-12px, -4px); }
 }
 
 .axe {
   position: absolute;
   width: 18%;
-  bottom: -200px;
-  left: 55%;
+  bottom: 70px;
+  left: 720px;
   transform-origin: 0 100%;
 
-  animation: axe-intro 1.5s linear forwards,
-             axe-swing 0.4s 2 2.2s linear alternate-reverse,
-             axe-swing 0.4s 2 3.7s linear alternate-reverse,
-             axe-swing 0.4s 2 5.2s linear alternate-reverse;
+  animation: axe-intro 0.6s 0.5s linear both,
+             axe-swing 0.5s 1.5s cubic-bezier(.37,-0.61,.83,.67),
+             axe-swing 0.3s 3.0s cubic-bezier(.37,-0.61,.83,.67),
+             axe-swing 0.3s 3.4s cubic-bezier(.37,-0.61,.83,.67);
 }
 
 @keyframes axe-intro {
-  from { bottom: -200px; }
-  to   { bottom: 70px; }
+  from { transform: translate(0, 300px) scale(0.6); }
 }
 
 @keyframes axe-swing {
-  from { transform: rotate(-25deg); }
+  30% { transform: rotate(-25deg); animation-timing-function: ease-out }
 }
