@@ -147,7 +147,7 @@ p span {
   background-position-y: 50%;
   background-repeat: repeat-x;
   animation: slide-nami-beginning 1s 1s linear forwards,
-             slide-nami 30s 2s linear forwards;
+             slide-nami 30s 2s linear forwards 0.25;
 }
 
 @keyframes slide-nami-beginning {
