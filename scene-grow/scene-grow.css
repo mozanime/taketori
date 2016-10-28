@@ -86,16 +86,16 @@ p span {
 }
 
 #ending-text-1 span:nth-child(1) {
-  animation-delay: 10s;
+  animation-delay: 12s;
 }
 #ending-text-1 span:nth-child(2) {
-  animation-delay: 10.25s;
+  animation-delay: 12.25s;
 }
 #ending-text-1 span:nth-child(3) {
-  animation-delay: 10.5s;
+  animation-delay: 12.5s;
 }
 #ending-text-1 span:nth-child(4) {
-  animation-delay: 10.75s;
+  animation-delay: 12.75s;
 }
 
 #ending-text-2 {
@@ -105,18 +105,18 @@ p span {
 }
 
 #ending-text-2 span:nth-child(1) {
-  animation-delay: 11.5s;
+  animation-delay: 13.5s;
 }
 #ending-text-2 span:nth-child(2) {
-  animation-delay: 11.75s;
+  animation-delay: 13.75s;
 }
 
 #ending-text-2 span:nth-child(3) {
-  animation-delay: 12s;
+  animation-delay: 14s;
 }
 
 #ending-text-2 span:nth-child(4) {
-  animation-delay: 12.25s;
+  animation-delay: 14.25s;
 }
 
 /*
@@ -141,16 +141,22 @@ p span {
   left: 0;
   height: 90%;
   width: 4000px;
-  transform: translate(100vw);
+  transform: translate(1280px);
   background-image: url(materials/nami.svg);
   background-size: contain 80%;
   background-position-y: 50%;
   background-repeat: repeat-x;
-  animation: slide-nami 5.5s 1s linear forwards;
+  animation: slide-nami-beginning 1s 1s linear forwards,
+             slide-nami 30s 2s linear forwards;
+}
+
+@keyframes slide-nami-beginning {
+  to { transform: translate(0px); }
 }
 
 @keyframes slide-nami {
-  to { transform: translate(calc(-4000px + 100vw)); }
+  from { transform: translate(0px); }
+  to { transform: translate(-4000px); }
 }
 
 #scene-baby .hime {
@@ -207,7 +213,7 @@ p span {
   justify-content: center;
   align-items: center;
   animation: slide-in 2s 5s forwards,
-             slide-out 2s 8s forwards;
+             slide-out 2s 10s forwards;
 }
 
 #scene-girl .hime {
@@ -225,9 +231,9 @@ p span {
   background-size: contain;
   background-position-y: 50%;
   background-color: #fffbc4;
-  animation: girl-background 2s infinite linear,
+  animation: girl-background 6s infinite linear,
              slide-in 2s 5s forwards,
-             slide-out-koushi 2s 8s forwards;
+             slide-out-koushi 2s 10s forwards;
 }
 
 @keyframes slide-out-koushi {
@@ -274,5 +280,5 @@ p span {
 
 #scene-lady, #bg .hanas {
   transform: translate(100%);
-  animation: slide-in 2s 8s forwards;
+  animation: slide-in 2s 10s forwards;
 }

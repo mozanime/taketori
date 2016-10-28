@@ -13,7 +13,7 @@ function createHanaAnimation(container) {
   hana.style.top = Math.floor(Math.random() * 100) + "%";
   container.appendChild(hana);
   var duration = 3000 + Math.floor(Math.random() * 1000);
-  var delay = 9000 + Math.floor(Math.random() * 5000);
+  var delay = 11000 + Math.floor(Math.random() * 5000);
   var easing = "linear";
   switch (Math.floor(Math.random() * 4)) {
     case 0 : {
