@@ -103,32 +103,26 @@
   top: 20%;
   left: 12%;
   width: 13%;
+  height: 30%;
 }
 
 #scene-house .hime-container img {
+  position: absolute;
+  top: -3%;
+  left: 0%;
   width: 100%;
   height: 100%;
 }
 
 #scene-house .hime-container .hime {
-  position: absolute;
-  top: -3%;
-  left: 0%;
   animation: house-hide 0s 11s forwards;
-  z-index: 1;
 }
 
 #scene-house .hime-container .hime-komatta {
-  position: absolute;
-  top: -3%;
-  left: 0%;
   animation: house-hide 0s 13s forwards;
 }
 
 #scene-house .hime-container .hime-iya {
-  position: absolute;
-  top: -3%;
-  left: 0%;
   opacity: 0;
   animation: house-iyaiya 0.5s 13s alternate linear infinite;
 }
