@@ -44,7 +44,7 @@
 
 @keyframes house-heart {
   to {
-    transform: translate(0, -50%) scale(0.3);
+    transform: translate(-100%, -45%) scale(0.5);
     opacity: 1;
   }
 }
@@ -66,11 +66,11 @@
 
 @keyframes house-heart-kowareta {
   from {
-    transform: translate(0, -50%) scale(0.3);
+    transform: translate(-100%, -45%) scale(0.5);
     opacity: 1;
   }
   to {
-    transform: translate(50%, 0%) scale(0.1) rotate(90deg);
+    transform: translate(-50%, 0%) scale(0.1) rotate(90deg);
     opacity: 1;
   }
 }
@@ -159,10 +159,10 @@
 
 #scene-house .heart-container {
   position: absolute;
-  bottom: 15%;
-  right: 9%;
-  width: 12%;
-  height: calc(12% / 9 * 16);
+  bottom: 12%;
+  right: 18%;
+  width: 20%;
+  height: calc(20% / 9 * 16);
   animation: house-heart-yurayura 0.5s 5s linear alternate infinite;
 }
 
@@ -175,7 +175,7 @@
 
 #scene-house .heart-container .heart {
   opacity: 0;
-  animation: house-heart 3s 5s ease-in forwards,
+  animation: house-heart 8s 5s ease-in forwards,
              house-hide 0s 13s forwards;
 }
 
