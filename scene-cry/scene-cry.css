@@ -15,16 +15,16 @@
 
 #scene-cry .tsuki {
   position: absolute;
-  top: 10%;
+  top: 20%;
   right: 15%;
-  width: 30%;
+  width: 20%;
 }
 
 #scene-cry .mikado {
   position: absolute;
-  top: 20%;
-  right: 25%;
-  width: 10%;
+  top: 30%;
+  right: 22%;
+  width: 6%;
 }
 
 #scene-cry .yama {
