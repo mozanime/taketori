@@ -71,7 +71,7 @@ p span {
 }
 
 #intro-text {
-  animation: fade-out 0.01s 8.8s forwards step-start;
+  animation: fade-out 0.01s 10.8s forwards step-start;
 }
 
 #ending-text-1 span, #ending-text-2 span {
