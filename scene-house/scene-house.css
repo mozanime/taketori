@@ -49,6 +49,21 @@
   }
 }
 
+@keyframes house-iyaiya {
+  0% {
+    opacity: 0;
+  }
+  49.9% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 @keyframes house-heart-kowareta {
   from {
     transform: translate(0, -50%) scale(0.3);
@@ -115,12 +130,12 @@
   top: -3%;
   left: 0%;
   opacity: 0;
-  animation: house-show 0.05s 13s alternate infinite;
+  animation: house-iyaiya 0.5s 13s alternate linear infinite;
 }
 
 #scene-house .hime-container .hime-iyaiya {
   opacity: 0;
-  animation: house-show 0.05s 13s alternate-reverse infinite;
+  animation: house-iyaiya 0.5s 13s alternate-reverse linear infinite;
 }
 
 #scene-house .mikado-container {
