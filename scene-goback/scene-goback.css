@@ -112,10 +112,10 @@
 
 #scene-goback .kumos {
   position: absolute;
-  top: 26%;
-  left: 41%;
-  height: calc(18% / 9 * 16);
-  width: 18%;
+  top: 32%;
+  left: 42.5%;
+  height: calc(15% / 9 * 16);
+  width: 15%;
 }
 
 #scene-goback .kumos img {
