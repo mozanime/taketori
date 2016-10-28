@@ -59,13 +59,13 @@
 
 #scene-born .right {
   position: absolute;
-  right: 15%;
-  top: 15%;
+  right: 10%;
+  top: 12%;
 }
 
 #scene-born .left {
   position: absolute;
-  left: 15%;
+  left: 10%;
   top: 40%;
   animation-delay: 1.6s, 1.6s;
 }
