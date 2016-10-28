@@ -115,16 +115,6 @@ p span {
  * Baby scene
  */
 
-@keyframes baby-take-hidari {
-  from { transform: rotate(0deg) }
-  to { transform: translate(0, 100%) rotate(-45deg) }
-}
-
-@keyframes baby-take-migi {
-  from { transform: rotate(0deg) }
-  to { transform: translate(0, 100%) rotate(45deg) }
-}
-
 #scene-baby {
   position: absolute;
   top: 0;
@@ -165,7 +155,7 @@ p span {
   left: 30%;
   bottom: 0;
   width: 20%;
-  animation: baby-take-hidari 1s ease-in forwards;
+  animation: baby-take-hidari 1s ease-in both;
 }
 
 #scene-baby .take-migi {
@@ -173,7 +163,17 @@ p span {
   right: 30%;
   bottom: 0;
   width: 20%;
-  animation: baby-take-migi 1.5s ease-out forwards;
+  animation: baby-take-migi 1.5s ease-out both;
+}
+
+@keyframes baby-take-hidari {
+  from { transform: translate(85px, -78px) rotate(25deg) scale(1.36) }
+  to { transform: translate(-150px, 100%) rotate(-45deg) scale(1) }
+}
+
+@keyframes baby-take-migi {
+  from { transform: translate(-75px, -31px) rotate(-20.9deg) scale(1.36) }
+  to { transform: translate(150px, 100%) rotate(45deg) scale(1) }
 }
 
 /*
