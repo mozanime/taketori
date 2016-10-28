@@ -47,23 +47,23 @@ body {
   top: 0px;
   width: 100%;
   height: 100%;
-  animation: moveUp 6s 7.7s forwards;
+  animation: move-up 6s 7.7s forwards;
 }
 .yamatachi {
-  animation: moveUp 3.5s 7.4s, fadeOut 3.2s 7.4s;
+  animation: move-up 3.5s 7.4s, fade-out 3.2s 7.4s;
 }
 .torii {
-  animation: moveUp 3.5s 7.4s, fadeOut 1.8s 7.4s;
+  animation: move-up 3.5s 7.4s, fade-out 1.8s 7.4s;
 }
 .tsuki {
-  animation: brightGlow 1.5s alternate infinite ease-in-out, moveUp 3.6s 7.6s;
+  animation: bright-glow 1.5s alternate infinite ease-in-out, move-up 3.6s 7.6s;
 }
 .shiro-kumo-group {
-  animation: moveUp 4s 7.6s;
+  animation: move-up 4s 7.6s;
 }
 .shiro-kumo-group img {
-  animation: driftRight 27s linear forwards 0.5,
-             fadeHalf 2.5s alternate infinite;
+  animation: drift-right 27s linear forwards 0.5,
+             fade-half 2.5s alternate infinite;
 }
 .shiro-kumo-group img:nth-child(1) {
   animation-duration: 22s, 4s;
@@ -73,121 +73,208 @@ body {
   animation-duration: 40s;
   animation-delay: 0s, 1s;
 }
-.take-group img {
+.take-group .take {
   transform: scale(1, 0.85);
   animation: grow 4s forwards,
-             moveUpALot 3.8s 7.1s forwards cubic-bezier(.6,0,.71,1);
+             move-up-a-lot 3.8s 7.1s forwards cubic-bezier(.6,0,.71,1);
   animation-delay: 1000s;
-  /* will-change: transform; */
 }
-.take-group img:nth-child(6) { animation-delay: 1s, 7.1s;
+.take-group .take.fade-out {
+  animation: grow 4s forwards,
+             move-up-a-lot 3.8s 7.1s forwards cubic-bezier(.6,0,.71,1),
+             fade-mostly 2s 25s forwards;
+}
+.take-group .take:nth-child(1) { animation-delay: 3.9s, 7.05s;
+  animation-timing-function: ease, cubic-bezier(.6,0,.71,1) }
+.take-group .take:nth-child(2) { animation-delay: 3.6s, 7.1s;
+  animation-timing-function: ease, cubic-bezier(.6,0,.71,1) }
+.take-group .take:nth-child(3) { animation-delay: 3.8s, 7.0s;
   animation-timing-function: ease, ease-in-out }
-.take-group img:nth-child(4) { animation-delay: 1.8s, 7.1s;
+.take-group .take:nth-child(4) { animation-delay: 1.8s, 7.1s;
   animation-timing-function: ease, ease }
-.take-group img:nth-child(13) { animation-delay: 2.1s, 6.9s;
-  animation-timing-function: ease, cubic-bezier(.6,0,.71,1) }
-.take-group img:nth-child(16) { animation-delay: 2.5s, 7.0s;
+.take-group .take:nth-child(6) { animation-delay: 1s, 7.1s;
   animation-timing-function: ease, ease-in-out }
-.take-group img:nth-child(9) { animation-delay: 2.5s, 7.1s;
-  animation-timing-function: ease, ease }
-.take-group img:nth-child(8) { animation-delay: 3.0s, 7.3s;
-  animation-timing-function: ease, cubic-bezier(.6,0,.71,1) }
-.take-group img:nth-child(17) { animation-delay: 3.0s, 7.2s;
-  animation-timing-function: ease, ease }
-.take-group img:nth-child(18) { animation-delay: 3.8s, 7.0s;
+.take-group .take:nth-child(8) { animation-delay: 3.0s, 7.3s, 25s;
+  animation-timing-function: ease, cubic-bezier(.6,0,.71,1), ease }
+.take-group .take:nth-child(9) { animation-delay: 2.5s, 7.1s, 25s;
+  animation-timing-function: ease }
+.take-group .take:nth-child(10) { animation-delay: 3.4s, 7.0s, 25s;
+  animation-timing-function: ease, cubic-bezier(.6,0,.71,1), ease }
+.take-group .magic-take {
+  animation-delay: 3.9s, 7.0s;
+  animation-timing-function: ease;
+}
+.take-group .magic-take .falling {
+  animation: fall 3.5s 30s cubic-bezier(.76,0,1,1) forwards;
+  transform-origin: 0% 100%;
+}
+.take-group .take:nth-child(12) { animation-delay: 3.8s, 7.3s, 25s;
+  animation-timing-function: ease, ease-in-out, ease }
+.take-group .take:nth-child(13) { animation-delay: 2.1s, 6.9s, 25s;
+  animation-timing-function: ease, cubic-bezier(.6,0,.71,1), ease }
+.take-group .take:nth-child(14) { animation-delay: 3.1s, 7.0s, 25s;
+  animation-timing-function: ease }
+.take-group .take:nth-child(15) { animation-delay: 4.3s, 7.14s, 25s;
+  animation-timing-function: ease, cubic-bezier(.6,0,.71,1), ease }
+.take-group .take:nth-child(16) { animation-delay: 2.5s, 7.0s;
   animation-timing-function: ease, ease-in-out }
-.take-group img:nth-child(1) { animation-delay: 3.9s, 7.05s;
-  animation-timing-function: ease, cubic-bezier(.6,0,.71,1) }
-.take-group img:nth-child(19) { animation-delay: 4.1s, 7.0s; }
-.take-group img:nth-child(2) { animation-delay: 3.6s, 7.1s;
-  animation-timing-function: ease, cubic-bezier(.6,0,.71,1) }
-.take-group img:nth-child(3) { animation-delay: 3.8s, 7.0s;
-  animation-timing-function: ease, ease-in-out }
-.take-group img:nth-child(10) { animation-delay: 3.4s, 7.0s;
-  animation-timing-function: ease, cubic-bezier(.6,0,.71,1) }
-.take-group img:nth-child(11) { animation-delay: 3.9s, 7.0s;
+.take-group .take:nth-child(17) { animation-delay: 3.0s, 7.2s;
   animation-timing-function: ease, ease }
-.take-group img:nth-child(12) { animation-delay: 3.8s, 7.3s;
+.take-group .take:nth-child(18) { animation-delay: 3.8s, 7.0s;
   animation-timing-function: ease, ease-in-out }
-.take-group img:nth-child(14) { animation-delay: 3.1s, 7.0s;
-  animation-timing-function: ease, ease }
-.take-group img:nth-child(15) { animation-delay: 4.3s, 7.14s;
-  animation-timing-function: ease, cubic-bezier(.6,0,.71,1) }
-.take-group img.new-take {
+.take-group .take:nth-child(19) { animation-delay: 4.1s, 7.0s; }
+.take-group .take.new-take {
   opacity: 0;
-  animation: moveUpALot 3.8s 7.1s forwards cubic-bezier(0.6,0,0.71,1),
-             fadeIn 2.2s 9.4s forwards;
-  /* will-change: transform, opacity; */
+  animation: move-up-a-lot 3.8s 7.1s forwards cubic-bezier(0.6,0,0.71,1),
+             fade-in 2.2s 9.4s forwards;
 }
 .take-group img.new-take:nth-child(7) {
   animation-delay: 7.1s, 9.6s;
 }
 .kumo {
   opacity: 0;
-  animation: fadeIn 3s 7.3s 2 alternate ease-in, moveRight 12s 6s forwards;
+  animation: fade-in 3s 7.3s 2 alternate ease-in, move-right 12s 6s forwards;
 }
 #kumo-2 {
   animation-duration: 4s, 13s;
 }
 #kumo-3 {
-  animation-name: fadeIn, moveLeft;
+  animation-name: fade-in, move-left;
 }
 .narration {
-  position: absolute;
   font-size: 30px;
   font-weight: 500;
   writing-mode: vertical-rl;
+}
+.narration span {
+  position: absolute;
   filter: blur(15px);
   mask: linear-gradient(white 0%, transparent 100%) top;
   mask-size: 100% 0%;
-  animation: dropBlur 2s 12s forwards,
-             revealText 2.5s 12s forwards,
-             fadeOut 2s 15s forwards;
+  animation: drop-blur 3s 12s forwards,
+             reveal-text 3.5s 12s forwards,
+             fade-out 2s 15s forwards;
 }
 .camera {
   margin: 0;
   padding: 0;
-  animation: zoomIn 6s 15s ease-in-out forwards;
+  animation: zoom-in 6s 15s ease-in-out forwards;
 }
-@keyframes brightGlow {
+#narration-part-2 span:nth-child(1) {
+  animation-delay: 20s, 20s, 25s;
+}
+#narration-part-2 span:nth-child(2) {
+  animation-delay: 22s, 22s, 25s;
+}
+@keyframes bright-glow {
   to { filter: brightness(123%) }
 }
-@keyframes driftRight {
+@keyframes drift-right {
   to { transform: translate(600px); }
 }
 @keyframes grow {
   to { transform: scale(1.0, 1.0); }
 }
-@keyframes moveUpALot {
+@keyframes move-up-a-lot {
   from { transform: scale(1.0, 1.0) translate(0, 0); }
   to { transform: scale(1.0, 1.0) translate(0, -1420px); }
 }
-@keyframes moveUp {
+@keyframes move-up {
   to { transform: translate(0px, -720px); }
 }
-@keyframes moveLeft {
+@keyframes move-left {
   to { transform: translate(-1000px); }
 }
-@keyframes moveRight {
+@keyframes move-right {
   to { transform: translate(1000px); }
 }
-@keyframes fadeOut {
+@keyframes fade-out {
   to { opacity: 0 }
 }
-@keyframes fadeIn {
+@keyframes fade-in {
   to { opacity: 0.99 }
 }
-@keyframes fadeHalf {
+@keyframes fade-half {
   to { opacity: 0.75 }
 }
-@keyframes dropBlur {
+@keyframes fade-mostly {
+  to { opacity: 0.25 }
+}
+@keyframes drop-blur {
   to { filter: blur(0px); }
 }
-@keyframes revealText {
+@keyframes reveal-text {
   to { mask-size: 100% 300%; }
 }
-@keyframes zoomIn {
+@keyframes zoom-in {
   to { transform: scale(2) translate(0, -100px); }
+}
+@keyframes fall {
+  85% { transform: translate(0) rotate(-115deg);
+        animation-timing-function: linear; }
+  to  { transform: translate(-50px, 250px) rotate(-165deg) }
+}
+
+.viewport .ono {
+  position: absolute;
+  width: 18%;
+  bottom: 70px;
+  left: 690px;
+  transform-origin: 0 100%;
+
+  animation: ono-intro 0.6s 26s linear both,
+             ono-swing 0.5s 27s cubic-bezier(.37,-0.61,.83,.67),
+             ono-swing 0.3s 28.5s cubic-bezier(.37,-0.61,.83,.67),
+             ono-swing 0.3s 28.9s cubic-bezier(.37,-0.61,.83,.67);
+}
+
+@keyframes ono-intro {
+  from { transform: translate(0, 300px) scale(0.6); }
+}
+
+@keyframes ono-swing {
+  30% { transform: rotate(-25deg); animation-timing-function: ease-out }
+}
+
+.glitch-group {
+  transform: translate(0, -1420px);
+}
+
+.glitch-group img {
+  mix-blend-mode: multiply;
+  opacity: 0;
+  animation: glitch 0.3s 27.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+             glitch 0.3s 28.7s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+             glitch 0.3s 29.1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.glitch-group img:nth-child(1) {
+  animation-direction: normal, reverse, reverse, reverse;
+}
+.glitch-group img:nth-child(2) {
+}
+.glitch-group img:nth-child(3) {
+  animation-name: fade-in, glitch2, glitch2, glitch2;
+  animation-direction: normal, reverse, reverse, reverse;
+}
+.bamboo-back:nth-child(4) {
+  animation-name: fade-in, glitch2, glitch2, glitch2;
+}
+
+@keyframes glitch {
+  20% { transform: translate(15px, -4px); opacity: 1 }
+  50% { transform: translate(-15px, 4px); }
+  70% { transform: translate(6px, -2px); }
+  90% { transform: translate(-6px, 2px); }
+  99% { opacity: 0 }
+}
+
+@keyframes glitch2 {
+  20% { transform: translate(15px, 4px); opacity: 1 }
+  50% { transform: translate(-15px, -4px); }
+  70% { transform: translate(6px, 2px); }
+  90% { transform: translate(-6px, -2px); }
+  99% { opacity: 0 }
 }
 </style>
 <div class=viewport>
@@ -205,28 +292,58 @@ body {
     <img src="shiro-kumo-2.svg" style="width: 152px; left: 253px; top: 165px">
     <img src="shiro-kumo-3.svg" style="width: 171px; left: 760px; top: 166px">
   </div>
+  <div class="glitch-group group">
+    <img src="take-bg-blue.svg" class=bamboo-back
+      style="width: 77.071px; left: 604.5px; top: 1621.48px">
+    <img src="take-bg-pink.svg" class=bamboo-back
+      style="width: 77.071px; left: 604.5px; top: 1621.48px">
+    <img src="take-bg-blue.svg" class=bamboo-back
+      style="width: 77.071px; left: 604.5px; top: 1621.48px">
+    <img src="take-bg-pink.svg" class=bamboo-back
+      style="width: 77.071px; left: 604.5px; top: 1621.48px">
+  </div>
   <div class="take-group group">
-    <img src="take-01.svg" style="width: 398px; left: -71px; top: 86px">
-    <img src="take-02.svg" style="width: 364px; left: -132px; top: 159px">
-    <img src="take-03.svg" style="width: 303px; left: -101px; top: 263px">
-    <img src="take-04.svg" style="width: 314px; left: 13px; top: 166px">
+    <img src="take-01.svg" style="width: 398px; left: -71px; top: 86px"
+      class=take>
+    <img src="take-02.svg" style="width: 364px; left: -132px; top: 159px"
+      class=take>
+    <img src="take-03.svg" style="width: 303px; left: -101px; top: 263px"
+      class=take>
+    <img src="take-04.svg" style="width: 314px; left: 13px; top: 166px"
+      class=take>
     <img src="new-take-1.svg" style="width: 77px; left: 84px; top: 840px"
-      class=new-take>
-    <img src="take-05.svg" style="width: 148px; left: 226px; top: 275px">
+      class="take new-take">
+    <img src="take-05.svg" style="width: 148px; left: 226px; top: 275px"
+      class=take>
     <img src="new-take-2.svg" style="width: 78px; left: 176px; top: 786px"
-      class=new-take>
-    <img src="take-06.svg" style="width: 211px; left: 282px; top: 133px">
-    <img src="take-07.svg" style="width: 153px; left: 387px; top: 211px">
-    <img src="take-08.svg" style="width: 133px; left: 430px; top: 308px">
-    <img src="take-09.svg" style="width: 144px; left: 538px; top: 180px">
-    <img src="take-10.svg" style="width: 115px; left: 658px; top: 241px">
-    <img src="take-11.svg" style="width: 159px; left: 713px; top: 227px">
-    <img src="take-12.svg" style="width: 141px; left: 780px; top: 325px">
-    <img src="take-13.svg" style="width: 227px; left: 856px; top: 107px">
-    <img src="take-14.svg" style="width: 138px; left: 1004px; top: 349px">
-    <img src="take-15.svg" style="width: 238px; left: 1023px; top: 213px">
-    <img src="take-16.svg" style="width: 182px; left: 1108px; top: 308px">
-    <img src="take-17.svg" style="width: 457px; left: 981px; top: 60px">
+      class="take new-take">
+    <img src="take-06.svg" style="width: 211px; left: 282px; top: 133px"
+      class="take fade-out">
+    <img src="take-07.svg" style="width: 153px; left: 387px; top: 211px"
+      class="take fade-out">
+    <img src="take-08.svg" style="width: 133px; left: 430px; top: 308px"
+      class="take fade-out">
+    <div class="take magic-take" style="height: 1300px">
+      <img src="take-09.svg" style="width: 144px; left: 538px; top: 180px">
+      <img src="take-falling.svg" class=falling
+        style="width: 77.071px; left: 605px; top: 1543.5px">
+    </div>
+    <img src="take-10.svg" style="width: 115px; left: 658px; top: 241px"
+      class="take fade-out">
+    <img src="take-11.svg" style="width: 159px; left: 713px; top: 227px"
+      class="take fade-out">
+    <img src="take-12.svg" style="width: 141px; left: 780px; top: 325px"
+      class="take fade-out">
+    <img src="take-13.svg" style="width: 227px; left: 856px; top: 107px"
+      class=take>
+    <img src="take-14.svg" style="width: 138px; left: 1004px; top: 349px"
+      class=take>
+    <img src="take-15.svg" style="width: 238px; left: 1023px; top: 213px"
+      class=take>
+    <img src="take-16.svg" style="width: 182px; left: 1108px; top: 308px"
+      class=take>
+    <img src="take-17.svg" style="width: 457px; left: 981px; top: 60px"
+      class=take>
   </div>
   <img src="kumo-1.svg" style="width: 574px; left: -223px; top: 90px"
     class="kumo" id=kumo-1>
@@ -234,7 +351,14 @@ body {
     class="kumo" id=kumo-2>
   <img src="kumo-3.svg" style="width: 537px; left: 919px; top: 225px"
     class="kumo" id=kumo-3>
-  <p class=narration style="left: 910px; top: 50px">その竹の中に、もと光る竹なむ一筋ありける。</p>
+  <p class=narration id=narration-part-1>
+    <span style="left: 930px; top: 50px">その竹の中に、もと光る竹なむ一筋ありける。</span>
+  </p>
   </div>
+  <p class=narration id=narration-part-2>
+    <span style="left: 472px; top: 143px">あやしがりて寄りて見るに、</span>
+    <span style="left: 420px; top: 322px">つつの中光りたり</span>
+  </p>
+  <img class="ono" src="ono.svg" id="ono">
 </div>
 </html>

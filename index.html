@@ -38,9 +38,8 @@ iframe.active {
 const DEFAULT_TRANSITION = 'opacity 2s';
 const viewport = document.querySelector('.viewport');
 const scenes = [ { url: 'scene-intro' },
-                 { url: 'scene-take' },
-                 { url: 'scene-axe',
-                   delayTillNextScene: 1000 },
+                 { url: 'scene-take',
+                   delayTillNextScene: 400 },
                  { url: 'scene-born',
                    startTransition: 'opacity 0s',
                    delayTillNextScene: 1 },
