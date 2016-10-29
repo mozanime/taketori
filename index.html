@@ -33,6 +33,7 @@ iframe.active {
 <body>
   <div class="viewport">
   </div>
+  <audio preload="auto" src="music/縁側.mp3" id="bgm"></audio>
 </body>
 <script>
 const DEFAULT_TRANSITION = 'opacity 2s';
@@ -67,6 +68,7 @@ scenes.forEach((scene, i) => {
   scene.iframe.contentWindow.addEventListener('load', () => {
     if (i == 0) {
       activateScene(i);
+      document.getElementById('bgm').play();
     } else {
       // Pause all animations in non-active documents
       scene.iframe.contentDocument.getAnimations().forEach(anim => {
