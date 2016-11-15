@@ -123,7 +123,10 @@
 }
 
 @keyframes reveal-text {
-  to { mask-size: 100% 300%; }
+  to {
+    -webkit-mask-size: 100% 300%;
+    mask-size: 100% 300%;
+  }
 }
 
 #scene-cry p {
@@ -140,8 +143,12 @@
   position: absolute;
   color: white;
   filter: blur(0.5rem);
-  mask: linear-gradient(white 0%, transparent 100%) top;
+  -webkit-mask-image: linear-gradient(white 0%, transparent 100%);
+  -webkit-mask-size: 100% 1px;
+  -webkit-mask-repeat: no-repeat;
+  mask-image: linear-gradient(white 0%, transparent 100%);
   mask-size: 100% 0%;
+  mask-repeat: no-repeat;
   animation: drop-blur 3s 4s ease-out forwards,
              reveal-text 3s 4s ease-out forwards;
 }
