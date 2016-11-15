@@ -65,8 +65,12 @@ div.content span {
   text-shadow: black 1rem 0.75rem 1.25rem;
   filter: blur(0.5rem);
   color: black;
-  mask: linear-gradient(white 0%, transparent 100%) top;
+  -webkit-mask-image: linear-gradient(white 0%, transparent 100%);
+  -webkit-mask-size: 100% 1px;
+  -webkit-mask-repeat: no-repeat;
+  mask-image: linear-gradient(white 0%, transparent 100%);
   mask-size: 100% 0%;
+  mask-repeat: no-repeat;
   animation: reveal 4s forwards,
              scaleDown 3.5s 0.5s forwards,
              shrinkShadow 6s ease-out forwards,
@@ -102,7 +106,10 @@ div.content span:nth-child(5) {
   to { color: white; }
 }
 @keyframes reveal {
-  to { mask-size: 100% 170%; }
+  to {
+    -webkit-mask-size: 100% 170%;
+    mask-size: 100% 170%;
+  }
 }
 </style>
 </head>
