@@ -230,17 +230,31 @@ body {
   left: 690px;
   transform-origin: 0 100%;
 
-  animation: ono-intro 0.6s 26s linear both,
-             ono-swing 0.5s 27s cubic-bezier(.37,-0.61,.83,.67),
-             ono-swing 0.3s 28.5s cubic-bezier(.37,-0.61,.83,.67),
-             ono-swing 0.3s 28.9s cubic-bezier(.37,-0.61,.83,.67);
+  animation: ono-initial 26s linear,
+             ono-intro 0.6s 26s linear both,
+             ono-swing1 0.5s 27s cubic-bezier(.37,-0.61,.83,.67),
+             ono-swing2 0.3s 28.5s cubic-bezier(.37,-0.61,.83,.67),
+             ono-swing3 0.3s 28.9s cubic-bezier(.37,-0.61,.83,.67);
+}
+
+@keyframes ono-initial {
+  from { transform: translate(0, 300px); }
+  to { transform: translate(0, 300px); }
 }
 
 @keyframes ono-intro {
   from { transform: translate(0, 300px) scale(0.6); }
 }
 
-@keyframes ono-swing {
+@keyframes ono-swing1 {
+  30% { transform: rotate(-25deg); animation-timing-function: ease-out }
+}
+
+@keyframes ono-swing2 {
+  30% { transform: rotate(-25deg); animation-timing-function: ease-out }
+}
+
+@keyframes ono-swing3 {
   30% { transform: rotate(-25deg); animation-timing-function: ease-out }
 }
 
