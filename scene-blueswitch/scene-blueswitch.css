@@ -42,7 +42,7 @@
   top: 0;
   transform: translate(-100%);
   animation: blueswitch-from-left 6s 0s linear infinite,
-             blueswitch-dammy 0s;
+             blueswitch-dammy 0.1s;
 }
 
 #scene-blueswitch .kumos .kumo-container:nth-child(2) {
