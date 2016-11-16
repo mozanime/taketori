@@ -271,6 +271,11 @@ p span {
   z-index: 1;
 }
 
+@keyframes hanasaki {
+  from { transform: scale(0) }
+  to { transform: scale(1) }
+}
+
 #scene-lady .hana {
   position: absolute;
   background-image: url(materials/lady-hana.svg);

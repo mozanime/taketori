@@ -29,9 +29,9 @@ function createHanaAnimation(container) {
       break;
     }
   }
-  hana.animate({ transform: ["scale(0)", "scale(1)"] },
-               { easing: easing,
-                 duration: duration,
-                 delay: delay,
-                 fill: "both" });
+  hana.style.animationName = "hanasaki";
+  hana.style.animationDuration = `${ duration }ms`;
+  hana.style.animationEasing = easing;
+  hana.style.animationDelay = `${ delay }ms`;
+  hana.style.animationFillMode = "both";
 }
