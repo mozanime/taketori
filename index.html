@@ -66,14 +66,32 @@ scenes.forEach((scene, i) => {
   scene.iframe.src = `${scene.url}\/index.html`;
   viewport.appendChild(scene.iframe);
   scene.iframe.contentWindow.addEventListener('load', () => {
-    if (i == 0) {
+    // Pause all animations in non-active documents
+    const elements = scene.iframe.contentDocument.querySelectorAll('body *');
+    for (let j = 0; j < elements.length; j++) {
+      const element = elements.item(j);
+      const computedStyle = getComputedStyle(element);
+      const animationName = computedStyle.animationName;
+      if (animationName !== 'none') {
+        // Cancel the animation
+        element.style.animationName = 'none';
+
+        // Count animation count which is not infinite.
+        const iterationCountList =
+          computedStyle.animationIterationCount.split(', ');
+        let finishableAnimationCount = 0;
+        iterationCountList.forEach((iterationCount, k) => {
+          finishableAnimationCount += iterationCount === 'infinite' ? 0 : 1;
+        });
+
+        // Set the count and name to dataset.
+        element.dataset.animationCount = finishableAnimationCount;
+        element.dataset.animationName = animationName;
+      }
+    }
+    if (i === 0) {
       activateScene(i);
       document.getElementById('bgm').play();
-    } else {
-      // Pause all animations in non-active documents
-      scene.iframe.contentDocument.getAnimations().forEach(anim => {
-        anim.pause();
-      });
     }
   });
 });
@@ -88,18 +106,29 @@ function activateScene(index) {
     scene.iframe.style.transition = scene.startTransition;
   }
 
-  // Look for paused animations to un-pause
-  scene.iframe.contentDocument.getAnimations().forEach(animation => {
-    animation.currentTime = 0;
-    animation.play();
-  });
+  // Look for animations to restart and to know the animationend event.
+  const promises = [];
+  const elements =
+    scene.iframe.contentDocument.querySelectorAll('[data-animation-name]');
+  for (let element of elements) {
+    let animationCount =
+      parseInt(element.dataset.animationCount);
+    if (animationCount !== 0) {
+      const promise = new Promise((resolve, reject) => {
+        element.addEventListener('animationend', e => {
+          animationCount--;
+          if (animationCount === 0) {
+            resolve();
+          }
+        });
+      });
+      promises.push(promise);
+    }
+    // Restart
+    element.style.animationName = element.dataset.animationName;
+  };
 
-  const currentSceneEnd = Promise.all(
-    scene.iframe.contentDocument.getAnimations().map(
-      animation =>
-        animation.effect.getComputedTiming().activeDuration != Infinity
-        ? animation.finished
-        : Promise.resolve()));
+  const currentSceneEnd = Promise.all(promises);
   currentSceneEnd.then(() => {
     if (index == scenes.length - 1) {
       return;
